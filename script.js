@@ -2,9 +2,13 @@
 const LOGO_TOKEN = 'pk_Kaw8UJfoTXOmvt_DWkqBnA';
 
 // ===== WEB3FORMS =====
-// Obtenha sua chave gratuita em: https://web3forms.com
-// Cole a chave abaixo para ativar o envio real do formulário.
+// Chave para receber sugestões de ferramentas por e-mail (backup).
 const WEB3FORMS_KEY = '28d9b331-0e5a-4076-baac-21e07359b6f4';
+
+// ===== GOOGLE SHEETS =====
+// Cole aqui a URL gerada ao implantar o apps-script.js no Google Sheets.
+// Instruções completas em: apps-script.js
+const SHEETS_ENDPOINT = '';
 
 // ===== ESTADO =====
 let tools = [];
@@ -218,7 +222,8 @@ function buildRecem() {
   }).join('');
 }
 
-// ===== FORMULÁRIO — WEB3FORMS =====
+// ===== FORMULÁRIO =====
+// Envia para Google Sheets (primário) e Web3Forms (backup por e-mail).
 async function submitTool() {
   const name  = document.getElementById('ft-name').value.trim();
   const url   = document.getElementById('ft-url').value.trim();
@@ -234,41 +239,32 @@ async function submitTool() {
   const email = document.getElementById('ft-email').value.trim();
   const btn   = document.querySelector('.form-btn');
 
-  // Fallback: se a chave não foi configurada, abre mailto
-  if (!WEB3FORMS_KEY || WEB3FORMS_KEY === 'SUA_CHAVE_AQUI') {
-    const subject = encodeURIComponent('Sugestão de ferramenta — tidev.ia');
-    const body = encodeURIComponent(
-      `Nome: ${name}\nURL: ${url}\nCategoria: ${cat}\nPreço: ${price}\nDescrição: ${desc}` +
-      (email ? `\n\nMeu contato: ${email}` : '')
-    );
-    window.open(`mailto:contato@tidev.ia.br?subject=${subject}&body=${body}`, '_blank');
-    showFormSuccess();
-    return;
-  }
-
   btn.disabled = true;
   btn.textContent = 'Enviando...';
 
   try {
-    const data = new FormData();
-    data.append('access_key', WEB3FORMS_KEY);
-    data.append('subject', 'Sugestão de ferramenta — tidev.ia');
-    data.append('from_name', 'tidev.ia Hub');
-    data.append('nome_ferramenta', name);
-    data.append('url', url);
-    data.append('categoria', cat);
-    data.append('preco', price);
-    data.append('descricao', desc);
-    if (email) data.append('email_indicador', email);
-
-    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
-    const json = await res.json();
-
-    if (json.success) {
-      showFormSuccess();
-    } else {
-      throw new Error(json.message || 'Erro ao enviar');
+    // 1. Google Sheets — envia os dados para a planilha (sem ler resposta por limitação de CORS)
+    if (SHEETS_ENDPOINT) {
+      const params = new URLSearchParams({ nome: name, url, categoria: cat, preco: price, descricao: desc, email });
+      fetch(SHEETS_ENDPOINT, { method: 'POST', mode: 'no-cors', body: params });
     }
+
+    // 2. Web3Forms — envia cópia por e-mail
+    if (WEB3FORMS_KEY) {
+      const data = new FormData();
+      data.append('access_key', WEB3FORMS_KEY);
+      data.append('subject', 'Sugestão de ferramenta — tidev.ia');
+      data.append('from_name', 'tidev.ia Hub');
+      data.append('nome_ferramenta', name);
+      data.append('url', url);
+      data.append('categoria', cat);
+      data.append('preco', price);
+      data.append('descricao', desc);
+      if (email) data.append('email_indicador', email);
+      await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+    }
+
+    showFormSuccess();
   } catch (err) {
     alert('Não foi possível enviar. Tente novamente ou envie para contato@tidev.ia.br');
     console.error(err);
@@ -277,6 +273,74 @@ async function submitTool() {
     btn.textContent = 'Enviar sugestão →';
   }
 }
+
+// ===== FERRAMENTA ALEATÓRIA =====
+let lastRandomPool = [];
+
+function discoverRandom() {
+  // Respeita os filtros ativos — sorteia dentro do conjunto visível
+  const pool = tools.filter(t => {
+    const matchCat   = activeCat === 'all' || t.cat === activeCat;
+    const matchSub   = activeSub === 'all' || t.sub === activeSub;
+    const matchPrice = activePrice === 'all' || t.price === activePrice;
+    return matchCat && matchSub && matchPrice;
+  });
+
+  if (pool.length === 0) return;
+
+  // Evita repetir a mesma ferramenta duas vezes seguidas
+  const candidates = pool.length > 1 ? pool.filter(t => t !== lastRandomPool[0]) : pool;
+  const tool = candidates[Math.floor(Math.random() * candidates.length)];
+  lastRandomPool = [tool];
+
+  openModal(tool);
+}
+
+function openModal(t) {
+  const priceMap   = {free:'Gratuito',freemium:'Freemium',paid:'Pago',affiliate:'Afiliado'};
+  const priceClass = {free:'price-free',freemium:'price-freemium',paid:'price-paid',affiliate:'price-affiliate'};
+  const subLabel   = (t.sub && subMap[t.sub]) ? (subIcon[t.sub] || '') + ' ' + subMap[t.sub] : '';
+  const catDisplay = subLabel ? catLabel(t.cat) + ' · ' + subLabel : catLabel(t.cat);
+  const domain     = t.url.replace(/https?:\/\//, '').replace(/\/.*/, '').replace(/^www\./, '');
+  const logoUrl    = `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&size=40&format=png`;
+  const initials   = t.name.replace(/[^a-zA-Z0-9]/g, ' ').trim().split(' ').filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+  const tags       = t.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
+
+  document.getElementById('modal-icon-img').src = logoUrl;
+  document.getElementById('modal-icon-img').alt = t.name;
+  document.getElementById('modal-icon-img').onerror = function() {
+    this.style.display = 'none';
+    document.getElementById('modal-icon-fallback').style.display = 'flex';
+    document.getElementById('modal-icon-fallback').textContent = initials;
+  };
+  document.getElementById('modal-icon-fallback').style.display = 'none';
+  document.getElementById('modal-name').textContent = t.name;
+  document.getElementById('modal-cat').textContent = catDisplay;
+  document.getElementById('modal-price').textContent = priceMap[t.price] || t.price;
+  document.getElementById('modal-price').className = 'price-badge ' + (priceClass[t.price] || '');
+  document.getElementById('modal-desc').textContent = t.desc;
+  document.getElementById('modal-tags').innerHTML = tags;
+  document.getElementById('modal-link').href = t.url;
+
+  const modal = document.getElementById('randomModal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('randomModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Fecha modal ao clicar no backdrop
+document.addEventListener('click', e => {
+  if (e.target.id === 'randomModal') closeModal();
+});
+
+// Fecha modal com Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
 
 function showFormSuccess() {
   document.getElementById('formSuccess').style.display = 'block';

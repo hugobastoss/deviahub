@@ -393,5 +393,36 @@ footer{position:relative;z-index:1;padding:36px 5vw;border-top:.5px solid var(--
 .tool-icon{width:40px;height:40px;border-radius:10px;border:.5px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--dark3);overflow:hidden}
 .tool-icon img{width:28px;height:28px;object-fit:contain;border-radius:4px}
 .tool-icon-fallback{width:28px;height:28px;border-radius:6px;background:var(--purple-dark);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--purple-light);letter-spacing:-.5px}
+
+/* BOTÃO ALEATÓRIO */
+.btn-random{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--subtle);font-family:var(--mono);font-size:12px;padding:9px 16px;border-radius:8px;border:.5px solid var(--border2);cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-random:hover{color:var(--cream);border-color:var(--purple);background:var(--purple-pale)}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--dark);border:.5px solid var(--border2);border-radius:20px;padding:32px;max-width:440px;width:100%;position:relative;animation:fadeUp .25s ease}
+.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--purple),transparent);border-radius:20px 20px 0 0}
+.modal-close{position:absolute;top:14px;right:14px;background:none;border:.5px solid var(--border2);border-radius:6px;color:var(--subtle);cursor:pointer;font-size:14px;line-height:1;padding:5px 9px;transition:all .15s}
+.modal-close:hover{color:var(--cream);border-color:var(--border)}
+.modal-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+.modal-icon{width:52px;height:52px;border-radius:12px;border:.5px solid var(--border2);background:var(--dark3);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+.modal-icon img{width:36px;height:36px;object-fit:contain;border-radius:4px}
+.modal-icon-fallback{width:36px;height:36px;border-radius:8px;background:var(--purple-dark);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--purple-light)}
+.modal-title{font-size:20px;font-weight:800;color:var(--cream);letter-spacing:-.5px;margin-bottom:4px}
+.modal-cat{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.modal-desc{font-size:14px;color:var(--subtle);line-height:1.65;margin-bottom:16px}
+.modal-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:20px}
+.modal-actions{display:flex;gap:8px}
+.modal-actions .btn-primary{flex:1;justify-content:center}
+.modal-actions .btn-secondary{padding:13px 16px}
+
+@media(max-width:600px){
+  .modal-box{padding:22px 18px;border-radius:14px}
+  .modal-title{font-size:17px}
+  .modal-actions{flex-direction:column}
+  .modal-actions .btn-primary,.modal-actions .btn-secondary{width:100%;justify-content:center}
+  .btn-random{font-size:11px;padding:8px 12px}
+}
 .new-card-icon img{width:32px;height:32px;object-fit:contain;border-radius:6px}
 .new-card-icon{width:40px;height:40px;border-radius:10px;border:.5px solid var(--border2);background:var(--dark3);display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:10px}
