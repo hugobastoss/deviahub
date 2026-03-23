@@ -771,7 +771,7 @@ footer{position:relative;z-index:1;padding:36px 5vw;border-top:.5px solid var(--
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="https://instagram.com/tidev.ia" target="_blank">Instagram</a></li>
   </ul>
-  <p class="footer-copy">© 2025 tidev.ia &nbsp;·&nbsp; Logos por <a href="https://logo.dev" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--purple)'" onmouseout="this.style.color='var(--muted)'">Logo.dev</a></p>
+  <p class="footer-copy">© 2025 tidev.ia</p>
 </footer>
 
 <script>
@@ -832,7 +832,7 @@ const tools = [
   // ===== IA — AUTOMAÇÃO =====
   {name:'Make',cat:'ia',sub:'automacao',price:'affiliate',icon:'🔧',desc:'Automação visual avançada — conecta apps e cria fluxos complexos sem código. Mais poderoso que Zapier.',tags:['fluxos','visual','integrações'],url:'https://make.com',affiliate:true,commission:'20% vitalício'},
   {name:'Zapier',cat:'ia',sub:'automacao',price:'affiliate',icon:'⚡',desc:'Conecta mais de 7.000 apps e automatiza tarefas sem código. O mais famoso do mercado.',tags:['integrações','no-code','apps'],url:'https://zapier.com',affiliate:true,commission:'25% rec.'},
-  {name:'n8n',cat:'ia',sub:'agentes',price:'freemium',icon:'🔗',desc:'Automação open source self-hosted — controle total dos seus fluxos sem custo de assinatura.',tags:['open source','self-hosted','fluxos'],url:'https://n8n.io',affiliate:false},
+  {name:'n8n',cat:'ia',sub:'automacao',price:'freemium',icon:'🔗',desc:'Automação open source self-hosted — controle total dos seus fluxos sem custo de assinatura.',tags:['open source','self-hosted','fluxos'],url:'https://n8n.io',affiliate:false},
   {name:'Power Automate',cat:'ia',sub:'automacao',price:'freemium',icon:'⚙️',desc:'Automação da Microsoft — integra Office, Teams, SharePoint e centenas de apps externos.',tags:['microsoft','office','fluxos'],url:'https://powerautomate.microsoft.com',affiliate:false},
   {name:'Typebot',cat:'ia',sub:'automacao',price:'freemium',icon:'🤖',desc:'Cria chatbots e formulários conversacionais avançados sem código. Open source.',tags:['chatbot','formulário','no-code'],url:'https://typebot.io',affiliate:false},
   {name:'Manychat',cat:'ia',sub:'automacao',price:'affiliate',icon:'💬',desc:'Automação de marketing via WhatsApp, Instagram e Messenger com IA e fluxos visuais.',tags:['whatsapp','instagram','chatbot'],url:'https://manychat.com',affiliate:true,commission:'20-30% rec.'},
@@ -1410,9 +1410,6 @@ const tools = [
   {name:'Shopify',cat:'dev',sub:'ecommerce',price:'affiliate',icon:'🛒',desc:'Plataforma líder de e-commerce. Loja virtual completa com pagamento e gestão integrados.',tags:['e-commerce','loja','vendas'],url:'https://shopify.com',affiliate:true,commission:'200% 1º mês'},
   {name:'Nuvemshop',cat:'dev',sub:'ecommerce',price:'affiliate',icon:'☁️',desc:'E-commerce brasileiro completo — ideal para quem quer vender online no Brasil.',tags:['e-commerce','brasil','loja'],url:'https://nuvemshop.com.br',affiliate:true,commission:'Comissão por indicação'},
   {name:'Hostinger',cat:'dev',sub:'hospedagem',price:'affiliate',icon:'🖥️',desc:'Hospedagem web rápida e acessível — domínio grátis, suporte 24/7 e SSL incluído.',tags:['hospedagem','domínio','wordpress'],url:'https://hostinger.com.br',affiliate:true,commission:'40%+'},
-
-  {name:'Kling',cat:'ia',sub:'imagem',price:'freemium',icon:'🤖',desc:'Gerador de vídeo com IA da Kuaishou. Cria vídeos realistas e cinematográficos via texto.',tags:['video','text-to-video','cinematico'],url:'https://klingai.com',affiliate:false},
-  {name:'Sora',cat:'ia',sub:'imagem',price:'freemium',icon:'🤖',desc:'Gerador de vídeo da OpenAI com física realista. Cria vídeos longos e coerentes por texto.',tags:['openai','video','text-to-video'],url:'https://sora.com',affiliate:false},
 ];
 
 // ===== FAVORITOS =====
@@ -1471,7 +1468,7 @@ let activeSub = 'all';
 const CAT_SUBS = {
   ti:     [{v:'all',l:'Todas'},{v:'seguranca',l:'🔒 Segurança'},{v:'performance',l:'⚡ Performance'},{v:'analise',l:'📊 Análise'}],
   dev:    [{v:'all',l:'Todas'},{v:'ferramentas',l:'🔧 Ferramentas'},{v:'nocode',l:'🪄 No-Code'},{v:'backend',l:'🗄️ Backend & API'},{v:'hospedagem',l:'🌐 Hospedagem'},{v:'ecommerce',l:'🛒 E-commerce'}],
-  ia:     [{v:'all',l:'Todas'},{v:'llm',l:'🧠 Assistentes'},{v:'escrita',l:'✍️ Escrita'},{v:'imagem',l:'🖼️ Imagem'},{v:'voz',l:'🎙️ Voz & Áudio'},{v:'musica',l:'🎵 Música'},{v:'codigo',l:'💻 Código'},{v:'automacao',l:'⚙️ Automação'},{v:'pesquisa',l:'🔍 Pesquisa'},{v:'social',l:'📱 Social'},{v:'vendas',l:'💰 Vendas'},{v:'dados',l:'📊 Dados'},{v:'avatar',l:'👤 Avatares'},{v:'3d',l:'🎲 3D'},{v:'rh',l:'🧑 RH'},{v:'juridico',l:'⚖️ Jurídico'},{v:'educacao',l:'🎓 Educação'},{v:'plataforma',l:'🌐 Plataformas'},{v:'agentes',l:'🤖 Agentes de IA'}],
+  ia:     [{v:'all',l:'Todas'},{v:'llm',l:'🧠 Assistentes'},{v:'escrita',l:'✍️ Escrita'},{v:'imagem',l:'🖼️ Imagem'},{v:'voz',l:'🎙️ Voz & Áudio'},{v:'musica',l:'🎵 Música'},{v:'codigo',l:'💻 Código'},{v:'automacao',l:'⚙️ Automação'},{v:'pesquisa',l:'🔍 Pesquisa'},{v:'social',l:'📱 Social'},{v:'vendas',l:'💰 Vendas'},{v:'dados',l:'📊 Dados'},{v:'avatar',l:'👤 Avatares'},{v:'3d',l:'🎲 3D'},{v:'rh',l:'🧑 RH'},{v:'juridico',l:'⚖️ Jurídico'},{v:'educacao',l:'🎓 Educação'},{v:'plataforma',l:'🌐 Plataformas'}],
   video:  [{v:'all',l:'Todas'},{v:'editor',l:'✂️ Editor'},{v:'gerador',l:'🎬 Gerador'},{v:'avatar',l:'👤 Avatar & Presenter'},{v:'dublagem',l:'🗣️ Dublagem & Legenda'}],
   design: [{v:'all',l:'Todas'},{v:'criacao',l:'🎨 Criação'},{v:'uidesign',l:'🖍️ UI & Protótipo'},{v:'logo',l:'🏷️ Logo & Marca'},{v:'recursos',l:'📸 Recursos'}],
   prod:   [{v:'all',l:'Todas'},{v:'gestao',l:'📋 Gestão'},{v:'reunioes',l:'🎥 Reuniões'},{v:'marketing',l:'📣 Marketing & CRM'},{v:'dados',l:'📊 Dados & Relatórios'}]
@@ -1487,33 +1484,7 @@ function setCat(btn) {
   const subLabel = document.getElementById('subLabel');
   if(activeCat !== 'all' && CAT_SUBS[activeCat]) {
     subRow.style.display = 'flex';
-    const subs = CAT_SUBS[activeCat
-{name:'n8n',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Plataforma de automação open source com IA nativa. Conecte centenas de apps com fluxos visuais e agentes autônomos.',tags:['automacao','agente','workflow'],url:'https://n8n.io',affiliate:false},
-  {name:'Make',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Automatize fluxos de trabalho conectando apps com IA. Crie cenários complexos de automação sem código.',tags:['automacao','workflow','no-code'],url:'https://make.com',affiliate:true,commission:'20% vitalício'},
-  {name:'Zapier',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Conecte mais de 7.000 apps e automatize tarefas repetitivas com IA. A plataforma de automação mais popular.',tags:['automacao','integracao','workflow'],url:'https://zapier.com',affiliate:true,commission:'25% recorrente'},
-  {name:'AutoGPT',cat:'ia',sub:'agentes',price:'free',icon:'🤖',desc:'Agente de IA autônomo open source. Executa tarefas complexas em múltiplas etapas sem supervisão constante.',tags:['agente','autonomo','open-source'],url:'https://agpt.co',affiliate:false},
-  {name:'CrewAI',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Framework para orquestrar múltiplos agentes de IA trabalhando juntos em tarefas complexas e colaborativas.',tags:['agente','multi-agente','framework'],url:'https://crewai.com',affiliate:false},
-  {name:'Dify',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Plataforma open source para criar e implantar apps e agentes de IA com interface visual e API pronta.',tags:['agente','llm','open-source'],url:'https://dify.ai',affiliate:false},
-  {name:'LangChain',cat:'ia',sub:'agentes',price:'free',icon:'🤖',desc:'Framework open source para criar agentes e pipelines de IA com LLMs. O mais usado por desenvolvedores.',tags:['framework','agente','llm'],url:'https://langchain.com',affiliate:false},
-  {name:'Flowise',cat:'ia',sub:'agentes',price:'free',icon:'🤖',desc:'Interface visual drag-and-drop para criar fluxos de agentes de IA com LangChain. Open source e auto-hospedável.',tags:['agente','visual','no-code'],url:'https://flowiseai.com',affiliate:false},
-  {name:'AgentGPT',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Crie e execute agentes de IA autônomos no navegador. Define o objetivo e o agente executa as etapas.',tags:['agente','autonomo','navegador'],url:'https://agentgpt.reworkd.ai',affiliate:false},
-  {name:'Relevance AI',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Plataforma para criar equipes de agentes de IA para vendas, suporte e operações sem código.',tags:['agente','vendas','automacao'],url:'https://relevanceai.com',affiliate:false},
-  {name:'Vertex AI Agent Builder',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Plataforma do Google para criar agentes conversacionais e fluxos de IA empresariais com baixo código.',tags:['google','agente','empresarial'],url:'https://cloud.google.com/products/agent-builder',affiliate:false},
-  {name:'Microsoft Copilot Studio',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Crie agentes de IA personalizados integrados ao Microsoft 365, Teams e Power Platform sem código.',tags:['microsoft','agente','copilot'],url:'https://copilotstudio.microsoft.com',affiliate:false},
-  {name:'Botpress',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Plataforma de agentes de IA para empresas com NLU avançado, integrações nativas e analytics detalhado.',tags:['agente','chatbot','empresarial'],url:'https://botpress.com',affiliate:false},
-  {name:'Stack AI',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Crie fluxos de IA e agentes conectando LLMs, dados e APIs com interface no-code intuitiva.',tags:['agente','no-code','llm'],url:'https://stack-ai.com',affiliate:false},
-  {name:'Coze',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'Plataforma da ByteDance para criar bots e agentes de IA integrados ao Discord, Telegram e WhatsApp.',tags:['agente','bot','bytedance'],url:'https://coze.com',affiliate:false},
-  {name:'OpenAI Assistants',cat:'ia',sub:'agentes',price:'freemium',icon:'🤖',desc:'API da OpenAI para criar assistentes com memória, acesso a arquivos e execução de código persistente.',tags:['openai','agente','api'],url:'https://platform.openai.com/assistants',affiliate:false},
-  {name:'Kling 3.0',cat:'ia',sub:'imagem',price:'freemium',icon:'🖼️',desc:'Gerador de vídeo com IA de última geração da Kuaishou. Cria vídeos realistas e cinematográficos de texto.',tags:['video','text-to-video','cinematico'],url:'https://klingai.com',affiliate:false},
-  {name:'Sora 2',cat:'ia',sub:'imagem',price:'freemium',icon:'🖼️',desc:'Segunda geração do gerador de vídeo da OpenAI. Cria vídeos longos e coerentes com física realista.',tags:['openai','video','text-to-video'],url:'https://sora.com',affiliate:false},
-  {name:'Grok',cat:'ia',sub:'llm',price:'freemium',icon:'🧠',desc:'LLM da xAI com acesso em tempo real ao X (Twitter). Ideal para análises de tendências e notícias.',tags:['xai','llm','tempo-real'],url:'https://grok.com',affiliate:false},
-  {name:'Qwen',cat:'ia',sub:'llm',price:'free',icon:'🧠',desc:'LLM open source da Alibaba com suporte multimodal. Alta performance em raciocínio e código.',tags:['alibaba','llm','open-source'],url:'https://qwenlm.github.io',affiliate:false},
-  {name:'Mistral',cat:'ia',sub:'llm',price:'freemium',icon:'🧠',desc:'LLM europeu open source com excelente desempenho e eficiência. Alternativa ao GPT com foco em privacidade.',tags:['llm','europeu','open-source'],url:'https://mistral.ai',affiliate:false},
-  {name:'Luma Dream Machine',cat:'ia',sub:'imagem',price:'freemium',icon:'🖼️',desc:'Gera vídeos realistas a partir de texto ou imagens com qualidade cinematográfica em segundos.',tags:['video','text-to-video','cinematico'],url:'https://lumalabs.ai/dream-machine',affiliate:false},
-  {name:'ElevenLabs',cat:'ia',sub:'voz',price:'freemium',icon:'🎙️',desc:'Síntese e clonagem de voz com IA de altíssima qualidade. Mais de 1.000 vozes em 29 idiomas incluindo PT-BR.',tags:['voz','clonagem','tts'],url:'https://elevenlabs.io',affiliate:false},
-  {name:'Perplexity AI',cat:'ia',sub:'pesquisa',price:'freemium',icon:'🔍',desc:'Motor de busca com IA que responde perguntas com fontes citadas em tempo real. Alternativa inteligente ao Google.',tags:['busca','pesquisa','tempo-real'],url:'https://perplexity.ai',affiliate:false},
-  {name:'Leonardo AI',cat:'ia',sub:'imagem',price:'freemium',icon:'🖼️',desc:'Plataforma de geração de imagens com IA para criadores. Modelos customizáveis e geração em lote.',tags:['imagem','arte','criacao'],url:'https://leonardo.ai',affiliate:false},
-];
+    const subs = CAT_SUBS[activeCat];
     subLabel.textContent = 'Tipo';
     subBtns.innerHTML = subs.map(s =>
       '<button class="filter-btn' + (s.v==='all'?' active':'') + '" data-sub="' + s.v + '" onclick="setSub(this)">' + s.l + '<\/button>'
@@ -1562,8 +1533,8 @@ function applyFilters() {
 function renderCard(t) {
   var priceMap = {free:'Gratuito',freemium:'Freemium',paid:'Pago',affiliate:'Afiliado'};
   var priceClass = {free:'price-free',freemium:'price-freemium',paid:'price-paid',affiliate:'price-affiliate'};
-  var subMap = {llm:'LLM',escrita:'Escrita',imagem:'Imagem',voz:'Voz',musica:'Musica',codigo:'Codigo',automacao:'Automacao',pesquisa:'Pesquisa',plataforma:'Plataformas',social:'Social',vendas:'Vendas',dados:'Dados',avatar:'Avatares',rh:'RH',juridico:'Juridico',educacao:'Educacao','3d':'3D',ferramentas:'Ferramentas',nocode:'No-Code',backend:'Backend',hospedagem:'Hospedagem',ecommerce:'E-commerce',seguranca:'Seguranca',performance:'Performance',analise:'Analise',editor:'Editor',gerador:'Gerador',dublagem:'Dublagem',criacao:'Criacao',uidesign:'UI Design',logo:'Logo',recursos:'Recursos',gestao:'Gestao',reunioes:'Reunioes',marketing:'Marketing',agentes:'Agentes de IA'};
-  var subIcon = {llm:'🧠',escrita:'✍️',imagem:'🖼️',voz:'🎙️',musica:'🎵',codigo:'💻',automacao:'⚙️',pesquisa:'🔍',plataforma:'🌐',social:'📱',vendas:'💰',dados:'📊',avatar:'👤',rh:'🧑',juridico:'⚖️',educacao:'🎓','3d':'🎲',ferramentas:'🔧',nocode:'🪄',backend:'🗄️',hospedagem:'🌐',ecommerce:'🛒',seguranca:'🔒',performance:'⚡',analise:'📊',editor:'✂️',gerador:'🎬',dublagem:'🗣️',criacao:'🎨',uidesign:'🖍️',logo:'🏷️',recursos:'📸',gestao:'📋',reunioes:'🎥',marketing:'📣',agentes:'🤖'};
+  var subMap = {llm:'LLM',escrita:'Escrita',imagem:'Imagem',voz:'Voz',musica:'Musica',codigo:'Codigo',automacao:'Automacao',pesquisa:'Pesquisa',plataforma:'Plataformas',social:'Social',vendas:'Vendas',dados:'Dados',avatar:'Avatares',rh:'RH',juridico:'Juridico',educacao:'Educacao','3d':'3D',ferramentas:'Ferramentas',nocode:'No-Code',backend:'Backend',hospedagem:'Hospedagem',ecommerce:'E-commerce',seguranca:'Seguranca',performance:'Performance',analise:'Analise',editor:'Editor',gerador:'Gerador',dublagem:'Dublagem',criacao:'Criacao',uidesign:'UI Design',logo:'Logo',recursos:'Recursos',gestao:'Gestao',reunioes:'Reunioes',marketing:'Marketing'};
+  var subIcon = {llm:'🧠',escrita:'✍️',imagem:'🖼️',voz:'🎙️',musica:'🎵',codigo:'💻',automacao:'⚙️',pesquisa:'🔍',plataforma:'🌐',social:'📱',vendas:'💰',dados:'📊',avatar:'👤',rh:'🧑',juridico:'⚖️',educacao:'🎓','3d':'🎲',ferramentas:'🔧',nocode:'🪄',backend:'🗄️',hospedagem:'🌐',ecommerce:'🛒',seguranca:'🔒',performance:'⚡',analise:'📊',editor:'✂️',gerador:'🎬',dublagem:'🗣️',criacao:'🎨',uidesign:'🖍️',logo:'🏷️',recursos:'📸',gestao:'📋',reunioes:'🎥',marketing:'📣'};
   var tags = t.tags.map(function(tag){ return '<span class="tool-tag">'+tag+'<\/span>'; }).join('');
   var aff = t.affiliate ? '<span class="affiliate-mark">💰 '+t.commission+'<\/span>' : '';
   var subLabel = (t.cat==='ia'&&t.sub&&subMap[t.sub]) ? (subIcon[t.sub]||'')+' '+subMap[t.sub] : '';
