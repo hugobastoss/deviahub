@@ -11,7 +11,11 @@ const WEB3FORMS_KEY = '28d9b331-0e5a-4076-baac-21e07359b6f4';
 const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzoIqCBmghoucpwLGcea1xoGnbTKrzF0eNtCxEoIeoMdT9mpaZzVi6rZG-BgSvtSpxX/exec';
 
 // ===== ESTADO =====
+const PAGE_SIZE = 30;
+
 let tools = [];
+let filteredTools = [];
+let currentPage = 0;
 let favs = new Set(JSON.parse(localStorage.getItem('tidev_favs') || '[]'));
 let favFilter = 'all';
 let activeCat = 'all';
@@ -136,10 +140,7 @@ function setPrice(btn) {
 
 // ===== CATÁLOGO =====
 function applyFilters() {
-  const q       = document.getElementById('searchInput').value.toLowerCase();
-  const grid    = document.getElementById('toolsGrid');
-  const noRes   = document.getElementById('noResults');
-  const countEl = document.getElementById('catalogCount');
+  const q = document.getElementById('searchInput').value.toLowerCase();
 
   const filtered = tools.filter(t => {
     const matchCat   = activeCat === 'all' || t.cat === activeCat;
@@ -151,15 +152,45 @@ function applyFilters() {
   });
 
   const seen = new Set();
-  const unique = filtered.filter(t => {
+  filteredTools = filtered.filter(t => {
     if (seen.has(t.name)) return false;
     seen.add(t.name);
     return true;
   });
 
-  grid.innerHTML = unique.map(t => renderCard(t)).join('');
-  noRes.style.display = unique.length === 0 ? 'block' : 'none';
-  if (countEl) countEl.textContent = `Mostrando ${unique.length} de ${tools.length} ferramentas`;
+  currentPage = 0;
+  document.getElementById('toolsGrid').innerHTML = '';
+  renderPage();
+}
+
+function renderPage() {
+  const grid    = document.getElementById('toolsGrid');
+  const noRes   = document.getElementById('noResults');
+  const countEl = document.getElementById('catalogCount');
+  const wrap    = document.getElementById('loadMoreWrap');
+  const info    = document.getElementById('loadMoreInfo');
+
+  const start = currentPage * PAGE_SIZE;
+  const slice = filteredTools.slice(start, start + PAGE_SIZE);
+
+  if (currentPage === 0) {
+    grid.innerHTML = slice.map(t => renderCard(t)).join('');
+  } else {
+    grid.insertAdjacentHTML('beforeend', slice.map(t => renderCard(t)).join(''));
+  }
+
+  const shown = Math.min((currentPage + 1) * PAGE_SIZE, filteredTools.length);
+  noRes.style.display = filteredTools.length === 0 ? 'block' : 'none';
+  if (countEl) countEl.textContent = `Mostrando ${shown} de ${filteredTools.length} ferramentas`;
+
+  const hasMore = shown < filteredTools.length;
+  wrap.style.display = hasMore ? 'block' : 'none';
+  if (hasMore && info) info.textContent = `${filteredTools.length - shown} ferramentas restantes`;
+}
+
+function loadMore() {
+  currentPage++;
+  renderPage();
 }
 
 function renderCard(t) {
@@ -235,6 +266,15 @@ async function submitTool() {
     return;
   }
 
+  try {
+    const parsed = new URL(url);
+    if (!['http:', 'https:'].includes(parsed.protocol)) throw new Error();
+  } catch {
+    alert('URL inválida. Use o formato: https://site.com');
+    document.getElementById('ft-url').focus();
+    return;
+  }
+
   const price = document.getElementById('ft-price').value;
   const email = document.getElementById('ft-email').value.trim();
   const btn   = document.querySelector('.form-btn');
@@ -293,10 +333,22 @@ function discoverRandom() {
   const tool = candidates[Math.floor(Math.random() * candidates.length)];
   lastRandomPool = [tool];
 
-  openModal(tool);
+  // Monta texto de contexto dos filtros ativos
+  const parts = [];
+  if (activeCat !== 'all') parts.push(catLabel(activeCat));
+  if (activeSub !== 'all' && subMap[activeSub]) parts.push(subMap[activeSub]);
+  if (activePrice !== 'all') {
+    const priceLabel = {free:'gratuitas',freemium:'freemium',paid:'pagas',affiliate:'afiliadas'}[activePrice];
+    if (priceLabel) parts.push(priceLabel);
+  }
+  const context = parts.length > 0
+    ? `sorteando entre ${pool.length} ferramentas de ${parts.join(' · ')}`
+    : `sorteando entre ${pool.length} ferramentas`;
+
+  openModal(tool, context);
 }
 
-function openModal(t) {
+function openModal(t, context = '') {
   const priceMap   = {free:'Gratuito',freemium:'Freemium',paid:'Pago',affiliate:'Afiliado'};
   const priceClass = {free:'price-free',freemium:'price-freemium',paid:'price-paid',affiliate:'price-affiliate'};
   const subLabel   = (t.sub && subMap[t.sub]) ? (subIcon[t.sub] || '') + ' ' + subMap[t.sub] : '';
@@ -321,6 +373,9 @@ function openModal(t) {
   document.getElementById('modal-desc').textContent = t.desc;
   document.getElementById('modal-tags').innerHTML = tags;
   document.getElementById('modal-link').href = t.url;
+
+  const ctxEl = document.getElementById('modal-context');
+  if (ctxEl) { ctxEl.textContent = context; ctxEl.style.display = context ? 'block' : 'none'; }
 
   const modal = document.getElementById('randomModal');
   modal.classList.add('open');

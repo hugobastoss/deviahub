@@ -12,6 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<!-- Analytics — Plausible (sem cookies, sem LGPD) -->
+<!-- Substitua "tidev.ia.br" pelo domínio real cadastrado no Plausible -->
+<script defer data-domain="tidev.ia.br" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 
@@ -178,6 +181,10 @@
     <div class="catalog-count" id="catalogCount"></div>
     <div class="tools-grid" id="toolsGrid"></div>
     <div class="no-results" id="noResults">Nenhuma ferramenta encontrada. Tente outro termo.</div>
+    <div id="loadMoreWrap" style="display:none;text-align:center;margin-top:28px">
+      <button class="btn-secondary" id="loadMoreBtn" onclick="loadMore()">Carregar mais ferramentas</button>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px" id="loadMoreInfo"></div>
+    </div>
   </div>
 </section>
 
@@ -388,6 +395,7 @@
 <div class="modal-overlay" id="randomModal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    <div id="modal-context" style="display:none;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;margin-bottom:16px"></div>
     <div class="modal-head">
       <div class="modal-icon">
         <img id="modal-icon-img" src="" alt="" loading="lazy" />
