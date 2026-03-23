@@ -8,7 +8,7 @@ const WEB3FORMS_KEY = '28d9b331-0e5a-4076-baac-21e07359b6f4';
 // ===== GOOGLE SHEETS =====
 // Cole aqui a URL gerada ao implantar o apps-script.js no Google Sheets.
 // Instruções completas em: apps-script.js
-const SHEETS_ENDPOINT = '';
+const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzoIqCBmghoucpwLGcea1xoGnbTKrzF0eNtCxEoIeoMdT9mpaZzVi6rZG-BgSvtSpxX/exec';
 
 // ===== ESTADO =====
 let tools = [];
