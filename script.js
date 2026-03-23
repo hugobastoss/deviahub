@@ -224,7 +224,8 @@ function renderCard(t) {
     <p class="tool-desc">${t.desc}</p>
     <div class="tool-bottom">
       <div class="tool-tags">${subBadge}${tags}</div>
-      <a href="${t.url}" target="_blank" rel="noopener" class="tool-link">Acessar &#x2192;</a>
+      <a href="${t.url}" target="_blank" rel="noopener" class="tool-link"
+         onclick="gtag&&gtag('event','clique_ferramenta',{tool_name:'${safeName}',tool_cat:'${t.cat}',tool_price:'${t.price}'})">Acessar &#x2192;</a>
     </div>
   </div>`;
 }
