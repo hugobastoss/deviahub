@@ -1712,7 +1712,7 @@
     "sub": "3d",
     "price": "freemium",
     "icon": "🎲",
-    "desc": "Create any 3D asset you need, simply by adding a text prompt. Powered by ground-breaking artificial intelligence.",
+    "desc": "Crie qualquer ativo 3D que precisar apenas adicionando um prompt de texto. Impulsionado por inteligência artificial de última geração.",
     "tags": [
       "3d"
     ],
@@ -1738,7 +1738,7 @@
     "sub": "3d",
     "price": "freemium",
     "icon": "🎲",
-    "desc": "Promethean AI is world's first Artificial Intelligence that works together with Artists, assists them in the process of",
+    "desc": "IA pioneira que trabalha ao lado de artistas, auxiliando no processo de criação de ambientes virtuais e mundos digitais imersivos.",
     "tags": [
       "3d"
     ],
@@ -1803,7 +1803,7 @@
     "sub": "3d",
     "price": "freemium",
     "icon": "🎲",
-    "desc": "Generate Textures in Seconds with AI. Create unlimited high-resolution, fully-custom, commercially-licensed textures wit",
+    "desc": "Gere texturas de alta resolução personalizadas em segundos com IA. Texturas ilimitadas com licença comercial para seus projetos.",
     "tags": [
       "3d"
     ],
@@ -1829,7 +1829,7 @@
     "sub": "3d",
     "price": "freemium",
     "icon": "🎲",
-    "desc": "AI-generated game assets. Create high-quality, style-consistent, proprietary assets for your games.",
+    "desc": "Assets para jogos gerados por IA. Crie recursos de alta qualidade e estilo consistente para os seus projetos de games.",
     "tags": [
       "3d"
     ],
@@ -1868,7 +1868,7 @@
     "sub": "3d",
     "price": "freemium",
     "icon": "🎲",
-    "desc": "A Generative Model of High Quality 3D Textured Shapes Learned from Images.",
+    "desc": "Modelo generativo da Nvidia que cria formas 3D texturizadas de alta qualidade aprendidas a partir de imagens reais.",
     "tags": [
       "3d"
     ],
@@ -1907,7 +1907,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "AI Art Generator. Create amazing artworks using the power of Artificial Intelligence.",
+    "desc": "Gerador de arte com IA. Crie obras de arte impressionantes usando o poder da inteligência artificial com múltiplos estilos.",
     "tags": [
       "art"
     ],
@@ -1946,7 +1946,7 @@
     "sub": "imagem",
     "price": "free",
     "icon": "🖼️",
-    "desc": "Free AI Art Generator that's generated over 5 million images. Imagine: you create a stunning masterpiece by throwing 2-3",
+    "desc": "Gerador de arte gratuito com IA que já criou mais de 5 milhões de imagens. Combine estilos e crie obras-primas únicas.",
     "tags": [
       "art"
     ],
@@ -1972,7 +1972,7 @@
     "sub": "imagem",
     "price": "free",
     "icon": "🖼️",
-    "desc": "Free, fast & unfiltered Stable Diffusion, the text-to-image AI🔥",
+    "desc": "Stable Diffusion gratuito, rápido e sem filtros. Converta texto em imagem com IA de forma simples e direta.",
     "tags": [
       "art"
     ],
@@ -2037,7 +2037,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "The Stable Diffusion search engine.",
+    "desc": "Motor de busca para imagens geradas com Stable Diffusion. Explore prompts criativos e descubra novas possibilidades.",
     "tags": [
       "art"
     ],
@@ -2063,7 +2063,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "Turn your ideas into unique wall art. Just type in your ideas, and we'll turn them into a never seen before piece of wal",
+    "desc": "Transforme suas ideias em arte exclusiva para paredes. Digite sua ideia e receba uma peça única nunca antes vista.",
     "tags": [
       "art"
     ],
@@ -2102,7 +2102,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "Create a beautiful gallery for your AI art without leaving Twitter.",
+    "desc": "Crie uma galeria de arte com IA diretamente no Twitter. Compartilhe e explore criações da comunidade sem sair da rede.",
     "tags": [
       "art"
     ],
@@ -2128,7 +2128,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "AI album art generator. Create the album cover you've always dreamed of!",
+    "desc": "Gerador de capas de álbum com IA. Crie a capa dos seus sonhos para seus projetos musicais em segundos.",
     "tags": [
       "art"
     ],
@@ -2336,7 +2336,7 @@
     "sub": "avatar",
     "price": "freemium",
     "icon": "👤",
-    "desc": "Meet, befriend, and create virtual characters. On a mission to bring gem-like virtual humans to life.",
+    "desc": "Conheça, faça amizade e crie personagens virtuais com IA. Em missão de trazer humanos virtuais únicos à vida.",
     "tags": [
       "avatars"
     ],
@@ -2427,7 +2427,7 @@
     "sub": "avatar",
     "price": "freemium",
     "icon": "👤",
-    "desc": "Create your own AI-generated avatars.",
+    "desc": "Crie seus próprios avatares personalizados gerados por inteligência artificial.",
     "tags": [
       "avatars"
     ],
@@ -2440,7 +2440,7 @@
     "sub": "avatar",
     "price": "freemium",
     "icon": "👤",
-    "desc": "Digirama is an AI character creator available as a mobile app.",
+    "desc": "Criador de personagens com IA disponível como aplicativo móvel. Crie personagens únicos de forma intuitiva.",
     "tags": [
       "avatars"
     ],
@@ -2570,7 +2570,7 @@
     "sub": "codigo",
     "price": "freemium",
     "icon": "💻",
-    "desc": "Your AI-powered code review assistant. Save costly developer time by automating pull request summaries. Open a pull requ",
+    "desc": "Assistente de revisão de código com IA. Economize tempo automatizando resumos de pull requests e code reviews.",
     "tags": [
       "codeassistant"
     ],
@@ -2635,7 +2635,7 @@
     "sub": "codigo",
     "price": "freemium",
     "icon": "💻",
-    "desc": "Build fast with production quality using AI.",
+    "desc": "Construa projetos rapidamente com qualidade de produção usando inteligência artificial.",
     "tags": [
       "codeassistant"
     ],
@@ -2739,7 +2739,7 @@
     "sub": "codigo",
     "price": "freemium",
     "icon": "💻",
-    "desc": "No-Code Business Automation. Cheat layer solves impossible business automation problems using a combination of no-code t",
+    "desc": "Automação de negócios sem código. Resolve problemas complexos de automação empresarial combinando ferramentas no-code e IA.",
     "tags": [
       "codeassistant"
     ],
@@ -2765,7 +2765,7 @@
     "sub": "codigo",
     "price": "freemium",
     "icon": "💻",
-    "desc": "CodeGeeX is a large-scale multilingual code generation model with 13 billion parameters, pre-trained on a large code cor",
+    "desc": "Modelo multilíngue de geração de código com 13 bilhões de parâmetros. Autocomplete inteligente para dezenas de linguagens de programação.",
     "tags": [
       "codeassistant"
     ],
@@ -2817,7 +2817,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Turn a few keywords into original, insightful articles, product descriptions and social media copy with AI copywriting—a",
+    "desc": "Transforme palavras-chave em artigos originais, descrições de produtos e copy para redes sociais com IA de copywriting.",
     "tags": [
       "copywriting"
     ],
@@ -2830,7 +2830,7 @@
     "sub": "escrita",
     "price": "free",
     "icon": "✍️",
-    "desc": "The best value AI Copywriting assistant there is - Fact! Get 5,000 Words free forever. Bertha AI - the copywriting assis",
+    "desc": "Assistente de copywriting com IA. Ganhe 5.000 palavras gratuitas para sempre. Ideal para sites, blogs e anúncios.",
     "tags": [
       "copywriting"
     ],
@@ -2856,7 +2856,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Botowski is your new personal AI copywriter.",
+    "desc": "Seu copywriter pessoal com IA. Gere textos de marketing e conteúdo de qualidade em segundos.",
     "tags": [
       "copywriting"
     ],
@@ -2869,7 +2869,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Join the beta test for the world's first vegan artificial intelligence marketing assistant.",
+    "desc": "Primeiro assistente de marketing com IA focado em produtos e marcas veganas. Acesse o beta gratuito.",
     "tags": [
       "copywriting"
     ],
@@ -2882,7 +2882,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "AI tool for creative advertising ideas. Concepts-on-demand for creatives and agencies. A large language model trained on",
+    "desc": "Ferramenta de IA para ideias criativas de publicidade. Conceitos sob demanda para criativos e agências de marketing.",
     "tags": [
       "copywriting"
     ],
@@ -2908,7 +2908,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Ideate, iterate, and write custom, high-quality, engaging professional copy. Between the web app, handy desktop app and",
+    "desc": "Crie copy profissional de alta qualidade com IA. Disponível em app web, aplicativo desktop e integrações diversas.",
     "tags": [
       "copywriting"
     ],
@@ -2960,7 +2960,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Lek is an AI copywriting tool. It's the fastest and easiest way to create content and copy. Lek AI helps you write anyth",
+    "desc": "Ferramenta de copywriting com IA. A forma mais rápida e fácil de criar conteúdo e copy para qualquer finalidade.",
     "tags": [
       "copywriting"
     ],
@@ -2973,7 +2973,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "The chosen AI Copywriting Software for eCommerce teams & agencies. Generate more revenue than ever before. Sign up for y",
+    "desc": "Software de copywriting com IA para equipes de e-commerce e agências. Gere mais receita com anúncios e descrições otimizadas.",
     "tags": [
       "copywriting"
     ],
@@ -3012,7 +3012,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Creaitor helps you write content in a more powerful, emotionally expressive way.",
+    "desc": "Creaitor ajuda você a escrever conteúdo de forma mais poderosa e emocionalmente expressiva com inteligência artificial.",
     "tags": [
       "copywriting"
     ],
@@ -3038,7 +3038,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Use WiziShop's Artificial Intelligence to write your e-commerce product descriptions, find inspiration for your future a",
+    "desc": "Use a IA do WiziShop para escrever descrições de produtos para e-commerce e encontrar inspiração para suas campanhas.",
     "tags": [
       "copywriting"
     ],
@@ -3129,7 +3129,7 @@
     "sub": "automacao",
     "price": "freemium",
     "icon": "⚙️",
-    "desc": "Automate your qualitative data analysis without compromising quality.",
+    "desc": "Automatize sua análise de dados qualitativos sem comprometer a qualidade. Extraia insights de feedbacks em minutos.",
     "tags": [
       "customersupport"
     ],
@@ -3168,7 +3168,7 @@
     "sub": "automacao",
     "price": "freemium",
     "icon": "⚙️",
-    "desc": "Forethought's AI platform automates and optimizes the entire support ticket lifecycle. Lowers support costs while provid",
+    "desc": "Plataforma de IA que automatiza e otimiza o ciclo de vida completo de tickets de suporte, reduzindo custos com qualidade.",
     "tags": [
       "customersupport"
     ],
@@ -3207,7 +3207,7 @@
     "sub": "automacao",
     "price": "freemium",
     "icon": "⚙️",
-    "desc": "The AI Sidekick that makes teams more productive",
+    "desc": "O assistente de IA que torna equipes de atendimento mais produtivas. Integrado ao Hiver para suporte ao cliente.",
     "tags": [
       "customersupport"
     ],
@@ -3363,7 +3363,7 @@
     "sub": "recursos",
     "price": "freemium",
     "icon": "🎨",
-    "desc": "Create logos, videos, banners, mockups with A.I. in 2 minutes.",
+    "desc": "Crie logos, vídeos, banners e mockups com IA em apenas 2 minutos. Suite completa de design.",
     "tags": [
       "designassistant"
     ],
@@ -3480,7 +3480,7 @@
     "sub": "criacao",
     "price": "freemium",
     "icon": "🎨",
-    "desc": "Create compelling products photos in seconds with AI",
+    "desc": "Crie fotos profissionais de produtos em segundos com inteligência artificial.",
     "tags": [
       "designassistant"
     ],
@@ -3532,7 +3532,7 @@
     "sub": "criacao",
     "price": "freemium",
     "icon": "🎨",
-    "desc": "Create AI-generated illustrations. Uniqueness in seconds. We're currently in public beta. Sign up to get early access.",
+    "desc": "Crie ilustrações exclusivas geradas por IA em segundos. Atualmente em acesso beta público.",
     "tags": [
       "designassistant"
     ],
@@ -3571,7 +3571,7 @@
     "sub": "backend",
     "price": "freemium",
     "icon": "💻",
-    "desc": "Common Sense Machines provides APIs, interfaces, and open source software to translate multi-modal inputs and experience",
+    "desc": "APIs e interfaces para traduzir entradas multimodais em experiências 3D. Software open source acessível para desenvolvedores.",
     "tags": [
       "developertools"
     ],
@@ -3727,7 +3727,7 @@
     "sub": "ferramentas",
     "price": "freemium",
     "icon": "💻",
-    "desc": "Build the documentation you've always wanted. Beautiful out of the box, easy to maintain, and optimized for user engagem",
+    "desc": "Crie a documentação que você sempre quis. Bonita, fácil de manter e otimizada para o usuário.",
     "tags": [
       "developertools"
     ],
@@ -3779,7 +3779,7 @@
     "sub": "educacao",
     "price": "freemium",
     "icon": "🎓",
-    "desc": "AI-Powered Quiz Question Generator. Make your own quiz using artificial intelligence. Perfect for teachers, e-learning a",
+    "desc": "Gerador de quizzes com IA. Crie questionários personalizados para educação, treinamento e aprendizado online.",
     "tags": [
       "educationassistant"
     ],
@@ -3792,7 +3792,7 @@
     "sub": "educacao",
     "price": "freemium",
     "icon": "🎓",
-    "desc": "Compute expert-level answers using Wolfram’s breakthrough algorithms, knowledgebase, and AI technology. Geared towards t",
+    "desc": "Respostas de nível especialista usando algoritmos avançados, base de conhecimento e IA. Ideal para matemática e ciências.",
     "tags": [
       "educationassistant"
     ],
@@ -3961,7 +3961,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Quicklines automatically creates personalized ice breakers to inject inside cold emails. Upload a CSV, wait 3 minutes, a",
+    "desc": "Cria automaticamente icebreakers personalizados para cold emails. Faça upload de um CSV e receba textos em minutos.",
     "tags": [
       "emailassistant"
     ],
@@ -3974,7 +3974,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Instantly helps you generate more replies & more revenue. Scale your outreach campaigns through unlimited email sending",
+    "desc": "Escale suas campanhas de outreach com envio ilimitado de e-mails. Gere mais respostas e receita com automação.",
     "tags": [
       "emailassistant"
     ],
@@ -4065,7 +4065,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Use AI To Create Art, Code, Music etc.",
+    "desc": "Use IA para criar arte, código, música e muito mais em um único lugar.",
     "tags": [
       "generalwriting"
     ],
@@ -4117,7 +4117,7 @@
     "sub": "escrita",
     "price": "free",
     "icon": "✍️",
-    "desc": "Compose is a free Chrome extension that lets you automate your writing using AI. We shouldn't be spending 40% of our tim",
+    "desc": "Extensão gratuita para Chrome que automatiza sua escrita com IA. Economize tempo em e-mails e documentos.",
     "tags": [
       "generalwriting"
     ],
@@ -4403,7 +4403,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Unlock your best writing",
+    "desc": "Desbloqueie sua melhor escrita com IA. Editor com sugestões inteligentes para textos mais fluidos e criativos.",
     "tags": [
       "generalwriting"
     ],
@@ -4429,7 +4429,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "A sophisticated AI writing assistant. Speed up your writing effortlessly - Paraphrase, Summarize, Generate a story or AI",
+    "desc": "Assistente de escrita sofisticado com IA. Parafraseie, resuma, gere histórias e melhore seus textos com facilidade.",
     "tags": [
       "generalwriting"
     ],
@@ -4481,7 +4481,7 @@
     "sub": "rh",
     "price": "free",
     "icon": "🧑‍💼",
-    "desc": "Create safe, bias-free, microaggressions-free, inclusive messages with Dost’s AI-powered Slack and MSTeams app.",
+    "desc": "Crie mensagens seguras, inclusivas e livres de microagressões com IA. Plugin para Slack e Microsoft Teams.",
     "tags": [
       "humanresources"
     ],
@@ -4533,7 +4533,7 @@
     "sub": "rh",
     "price": "freemium",
     "icon": "🧑‍💼",
-    "desc": "Accurately qualify *any* job title. Our machine-learning API sorts job titles into two categories: field (sales, finance",
+    "desc": "Qualifique cargos profissionais com precisão. API de machine learning que categoriza e classifica títulos de trabalho.",
     "tags": [
       "humanresources"
     ],
@@ -4559,7 +4559,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "Create product and portrait pictures using only your phone. Remove background, change background and showcase products.",
+    "desc": "Crie fotos de produtos e retratos usando apenas o celular. Remove fundo, troca cenário e destaca produtos.",
     "tags": [
       "imageediting"
     ],
@@ -4624,7 +4624,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "All-in-one AI toolkits help you enhance and upscale images. Increases image resolution without losing quality.",
+    "desc": "Suite de ferramentas com IA para melhorar e ampliar imagens. Aumente a resolução sem perder qualidade.",
     "tags": [
       "imageediting"
     ],
@@ -4780,7 +4780,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "A crowdsourced distributed cluster of Stable Diffusion workers. Also provides a client interface requiring no installati",
+    "desc": "Cluster distribuído de workers Stable Diffusion. Gere imagens com IA de forma comunitária sem instalação.",
     "tags": [
       "imagegenerator"
     ],
@@ -4832,7 +4832,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "Create stunning art & images 10X faster with AI.",
+    "desc": "Crie arte e imagens impressionantes 10x mais rápido com inteligência artificial.",
     "tags": [
       "imagegenerator"
     ],
@@ -4910,7 +4910,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "Brand-new technology that generates whatever image you describe.",
+    "desc": "Tecnologia do Canva que gera qualquer imagem a partir da sua descrição em texto.",
     "tags": [
       "imagegenerator"
     ],
@@ -4936,7 +4936,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "AI model drawing images from any prompt!",
+    "desc": "Modelo de IA que desenha imagens a partir de qualquer prompt. Simples, gratuito e acessível.",
     "tags": [
       "imagegenerator"
     ],
@@ -5014,7 +5014,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "StableDiffusion on your Apple Silicon Devices. Generate AI Artworks using only text. Make your dream artworks into reali",
+    "desc": "Stable Diffusion para dispositivos Apple Silicon. Gere obras de arte com IA usando apenas texto no seu Mac.",
     "tags": [
       "imagegenerator"
     ],
@@ -5131,7 +5131,7 @@
     "sub": "juridico",
     "price": "freemium",
     "icon": "⚖️",
-    "desc": "Ferret’s unparalleled AI app, combined with world class information, provides you with exclusive relationship intelligen",
+    "desc": "App de IA para inteligência de relacionamentos. Combine dados de contatos com informações exclusivas do mercado.",
     "tags": [
       "legalassistant"
     ],
@@ -5144,7 +5144,7 @@
     "sub": "juridico",
     "price": "freemium",
     "icon": "⚖️",
-    "desc": "The World's First Robot Lawyer. The DoNotPay app is the home of the world's first robot lawyer. Fight corporations, beat",
+    "desc": "O primeiro advogado robô do mundo. Dispute cobranças, cancele serviços e resolva problemas legais com IA.",
     "tags": [
       "legalassistant"
     ],
@@ -5196,7 +5196,7 @@
     "sub": "nocode",
     "price": "freemium",
     "icon": "💻",
-    "desc": "Make dynamic vision AI that works. Robovision offers a vision AI platform that covers the full AI life cycle. Streamline",
+    "desc": "Crie visão computacional dinâmica que funciona. Plataforma de IA visual que cobre todo o ciclo de vida da IA.",
     "tags": [
       "low-code/no-code"
     ],
@@ -5222,7 +5222,7 @@
     "sub": "backend",
     "price": "freemium",
     "icon": "💻",
-    "desc": "Create state-of-the-art voice applications with Neon AI's enabling technologies. The Neon AI SDK integrates advanced AI",
+    "desc": "Crie aplicações de voz de ponta com o SDK da Neon AI. Integra tecnologias avançadas de processamento de linguagem natural.",
     "tags": [
       "low-code/no-code"
     ],
@@ -5235,7 +5235,7 @@
     "sub": "ferramentas",
     "price": "freemium",
     "icon": "💻",
-    "desc": "Turn your visitors into paying customers. Set up your first experiment right away.",
+    "desc": "Converta visitantes em clientes pagantes com testes A/B. Configure seu primeiro experimento de otimização imediatamente.",
     "tags": [
       "low-code/no-code"
     ],
@@ -5274,7 +5274,7 @@
     "sub": "nocode",
     "price": "freemium",
     "icon": "💻",
-    "desc": "Build web apps lightning fast.",
+    "desc": "Construa apps web de forma extremamente rápida com IA. De ideia a produto funcional em minutos.",
     "tags": [
       "low-code/no-code"
     ],
@@ -5352,7 +5352,7 @@
     "sub": "backend",
     "price": "freemium",
     "icon": "💻",
-    "desc": "Automate Manual Data Entry Using AI! Capture data from documents, text, images, and emails instantly. Reduce turnaround",
+    "desc": "Automatize entrada de dados com IA. Capture dados de documentos, textos e imagens instantaneamente e com precisão.",
     "tags": [
       "low-code/no-code"
     ],
@@ -5443,7 +5443,7 @@
     "sub": "backend",
     "price": "freemium",
     "icon": "💻",
-    "desc": "Build models and full-stack AI apps, lightning fast. Build models and AI-powered cloud applications using Lightning App",
+    "desc": "Construa modelos e apps de IA completos de forma rápida. Plataforma em nuvem para desenvolvimento de IA.",
     "tags": [
       "low-code/no-code"
     ],
@@ -5573,7 +5573,7 @@
     "sub": "imagem",
     "price": "freemium",
     "icon": "🖼️",
-    "desc": "Image enhancer & upscaler. Automatic AI editor to increase image resolution without losing quality. Make your photos loo",
+    "desc": "Melhore e amplie imagens automaticamente com IA. Aumente a resolução sem perder qualidade — ideal para fotos e arte.",
     "tags": [
       "mageediting"
     ],
@@ -5846,7 +5846,7 @@
     "sub": "avatar",
     "price": "freemium",
     "icon": "🎬",
-    "desc": "Rephrase's technology enables hyper-personalized video creation at scale that drive engagement and business efficiencies",
+    "desc": "Tecnologia de criação de vídeos hiperpersonalizados em escala. Impulsiona engajamento e eficiência nos negócios.",
     "tags": [
       "personalizedvideos"
     ],
@@ -5898,7 +5898,7 @@
     "sub": "dados",
     "price": "freemium",
     "icon": "⚡",
-    "desc": "DeepL is the world's most accurate and nuanced machine translation. It is over 3x more accurate than its closest competi",
+    "desc": "O tradutor automático mais preciso e natural do mundo. Mais de 3x mais preciso que os concorrentes mais próximos.",
     "tags": [
       "productivity"
     ],
@@ -5976,7 +5976,7 @@
     "sub": "gestao",
     "price": "freemium",
     "icon": "⚡",
-    "desc": "Know what your company knows, instantly. Glean searches across all your company's apps to help you find exactly what you",
+    "desc": "Saiba o que sua empresa sabe, instantaneamente. Busca inteligente em todos os apps e documentos da empresa.",
     "tags": [
       "productivity"
     ],
@@ -6015,7 +6015,7 @@
     "sub": "gestao",
     "price": "freemium",
     "icon": "⚡",
-    "desc": "A Bespoke Operating System for Work. Qatalog is a project management/collaboration AI tool allowing seamless management",
+    "desc": "Sistema operacional personalizado para o trabalho. Gerenciamento de projetos e colaboração com IA integrada.",
     "tags": [
       "productivity"
     ],
@@ -6080,7 +6080,7 @@
     "sub": "reunioes",
     "price": "freemium",
     "icon": "⚡",
-    "desc": "AI meeting assistant transforming Google Meet into actions, tasks and follow-ups. Features include: Real-time transcript",
+    "desc": "Assistente de reuniões com IA que transforma o Google Meet em ações, tarefas e próximos passos automaticamente.",
     "tags": [
       "productivity"
     ],
@@ -6158,7 +6158,7 @@
     "sub": "pesquisa",
     "price": "freemium",
     "icon": "🔍",
-    "desc": "Galactica is an AI trained on humanity's scientific knowledge. You can use it as a new interface to access and manipulat",
+    "desc": "IA treinada no conhecimento científico da humanidade. Nova interface para acessar e explorar dados científicos.",
     "tags": [
       "research"
     ],
@@ -6210,7 +6210,7 @@
     "sub": "vendas",
     "price": "freemium",
     "icon": "💰",
-    "desc": "Generate Ideas and Insight using AI and Network Thinking. InfraNodus combines text analysis, network visualization, and",
+    "desc": "Gere ideias e insights com IA e pensamento em rede. Combina análise de texto, visualização de rede e inteligência artificial.",
     "tags": [
       "sales"
     ],
@@ -6236,7 +6236,7 @@
     "sub": "vendas",
     "price": "freemium",
     "icon": "💰",
-    "desc": "Regie helps sales, marketing, and success teams write engaging content faster using AI",
+    "desc": "Ajuda equipes de vendas, marketing e sucesso do cliente a criar conteúdo envolvente mais rápido com IA.",
     "tags": [
       "sales"
     ],
@@ -6496,7 +6496,7 @@
     "sub": "pesquisa",
     "price": "freemium",
     "icon": "🔍",
-    "desc": "Explore millions of AI generated images and create collections of prompts. Featuring Stable Diffusion generations.",
+    "desc": "Explore milhões de imagens geradas por IA e crie coleções de prompts com Stable Diffusion.",
     "tags": [
       "searchengine"
     ],
@@ -6548,7 +6548,7 @@
     "sub": "pesquisa",
     "price": "freemium",
     "icon": "🔍",
-    "desc": "Your favorite content. Transcribed and searchable. Context is an AI-powered search engine that can find any moment you'r",
+    "desc": "Motor de busca com IA para o seu conteúdo favorito. Transcreve e torna qualquer momento pesquisável.",
     "tags": [
       "searchengine"
     ],
@@ -6652,7 +6652,7 @@
     "sub": "escrita",
     "price": "free",
     "icon": "✍️",
-    "desc": "BlogNLP is a free AI blog writing tool that helps you break your writer's block to create original content in a fraction",
+    "desc": "Ferramenta gratuita de escrita de blogs com IA. Quebre o bloqueio criativo e crie conteúdo original rapidamente.",
     "tags": [
       "seo"
     ],
@@ -6769,7 +6769,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Optimize your website content so Google adores it. Advanced content editor with semantic models (NLP), Google SERP analy",
+    "desc": "Otimize o conteúdo do seu site para o Google. Editor avançado com modelos semânticos NLP e análise de SERP.",
     "tags": [
       "seo"
     ],
@@ -6886,7 +6886,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "With WordHero's AI technology, you can create original blog posts, social media content, emails, and more - in just seco",
+    "desc": "Crie posts de blog, conteúdo para redes sociais, e-mails e muito mais em segundos com IA.",
     "tags": [
       "seo"
     ],
@@ -6964,7 +6964,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "From product descriptions to whole blog posts, Article Forge delivers unique, SEO optimized, high-quality content about",
+    "desc": "De descrições de produtos a posts completos — gera conteúdo único, otimizado para SEO e de alta qualidade.",
     "tags": [
       "seo"
     ],
@@ -7029,7 +7029,7 @@
     "sub": "social",
     "price": "freemium",
     "icon": "📱",
-    "desc": "Build and monetize your twitter audience. Get sales, growth, and new networks. Faster than what you're currently trying.",
+    "desc": "Construa e monetize seu público no Twitter com IA. Conquiste vendas, crescimento e novas conexões mais rápido.",
     "tags": [
       "socialmediaassistant"
     ],
@@ -7120,7 +7120,7 @@
     "sub": "social",
     "price": "freemium",
     "icon": "📱",
-    "desc": "\"Create \"\"Brand Love\"\" with Your Audience. CrawlQ delivers high-emotional, high-empathy, high-ROI, audience-centric crea",
+    "desc": "Crie amor pela marca com seu público. Conteúdo de alta emoção, empatia e ROI focado no cliente.",
     "tags": [
       "socialmediaassistant"
     ],
@@ -7146,7 +7146,7 @@
     "sub": "social",
     "price": "freemium",
     "icon": "📱",
-    "desc": "Your social media bio, created by artificial intelligence.",
+    "desc": "Sua bio para redes sociais criada por inteligência artificial. Gere uma apresentação única em segundos.",
     "tags": [
       "socialmediaassistant"
     ],
@@ -7198,7 +7198,7 @@
     "sub": "dados",
     "price": "freemium",
     "icon": "📊",
-    "desc": "Generate Google Sheets & Excel formulas from text, convert formulas into simple explanations, debug formulas, and more.",
+    "desc": "Gere fórmulas para Google Sheets e Excel a partir de texto, converta fórmulas em explicações simples e depure erros.",
     "tags": [
       "spreadsheets"
     ],
@@ -7276,7 +7276,7 @@
     "sub": "dados",
     "price": "freemium",
     "icon": "📊",
-    "desc": "Never waste precious data analyst time on writing boring SQL queries again. Avanty is an AI-powered data query + Busines",
+    "desc": "Nunca desperdice tempo de analista escrevendo queries SQL manualmente. IA que gera e explica consultas de dados.",
     "tags": [
       "sql"
     ],
@@ -7354,7 +7354,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Read & Create Together. Turn real-life situations into fun stories & illustrations in seconds on your phone.",
+    "desc": "Leia e crie histórias juntos. Transforme situações da vida real em histórias e ilustrações divertidas em segundos.",
     "tags": [
       "storyteller"
     ],
@@ -7380,7 +7380,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Create personalized, instant bedtime stories in seconds. Generate a story about your child, including some family member",
+    "desc": "Crie histórias de ninar personalizadas em segundos. Gere histórias sobre seu filho com personagens da família.",
     "tags": [
       "storyteller"
     ],
@@ -7406,7 +7406,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Create incredible children's stories by using AI to help you generate unique and beautiful children's stories with vivid",
+    "desc": "Crie histórias infantis incríveis com IA. Gere narrativas únicas e bonitas com ilustrações para crianças.",
     "tags": [
       "storyteller"
     ],
@@ -7419,7 +7419,7 @@
     "sub": "escrita",
     "price": "freemium",
     "icon": "✍️",
-    "desc": "Book Planning App Powered by AI Plan your story or cure your writer's block in minutes Stuck on where your plot will go",
+    "desc": "App de planejamento de livros com IA. Planeje sua história ou supere o bloqueio criativo em minutos.",
     "tags": [
       "storyteller"
     ],
@@ -7484,7 +7484,7 @@
     "sub": "pesquisa",
     "price": "freemium",
     "icon": "🔍",
-    "desc": "WordfixerBot is a paraphraser, grammar checker, text summarizer, and text comparison tool.",
+    "desc": "Parafraseador, verificador gramatical, resumidor de texto e ferramenta de comparação — tudo em um com IA.",
     "tags": [
       "summarizer"
     ],
@@ -7705,7 +7705,7 @@
     "sub": "voz",
     "price": "freemium",
     "icon": "🎙️",
-    "desc": "Integrate real-time speech-to-text and context understanding. Powered by advanced deep learning models. Enable live capt",
+    "desc": "Integre transcrição de fala em tempo real e compreensão de contexto com modelos avançados de deep learning.",
     "tags": [
       "texttospeech"
     ],
@@ -7978,7 +7978,7 @@
     "sub": "editor",
     "price": "freemium",
     "icon": "🎬",
-    "desc": "Automagically Turn long-form vids into data-driven short clips for social media. Munch generates exposure and engagement",
+    "desc": "Transforme vídeos longos em clipes curtos orientados por dados para redes sociais automaticamente com IA.",
     "tags": [
       "videoediting"
     ],
@@ -8004,7 +8004,7 @@
     "sub": "gerador",
     "price": "freemium",
     "icon": "🎬",
-    "desc": "Tailor-made AI image generation. Start creating your unique images.",
+    "desc": "Geração de imagens com IA sob medida. Comece a criar imagens únicas e personalizadas para seu projeto.",
     "tags": [
       "videogenerator"
     ],
@@ -8056,7 +8056,7 @@
     "sub": "gerador",
     "price": "freemium",
     "icon": "🎬",
-    "desc": "Turn text into movies and games.",
+    "desc": "Transforme texto em filmes e jogos com inteligência artificial generativa.",
     "tags": [
       "videogenerator"
     ],
@@ -8134,7 +8134,7 @@
     "sub": "editor",
     "price": "freemium",
     "icon": "🎬",
-    "desc": "Turn Your Content Team Into Unstoppable Creators. Automatically transcribe, edit, repurpose, and brand your video conten",
+    "desc": "Transcreva, edite, reaproveite e adicione identidade visual aos seus vídeos automaticamente com IA.",
     "tags": [
       "videogenerator"
     ],
@@ -8199,7 +8199,7 @@
     "sub": "gerador",
     "price": "freemium",
     "icon": "🎬",
-    "desc": "Welcome to Hour One - the world's fastest growing AI video maker. We turn text to video to make learning & development m",
+    "desc": "Plataforma de criação de vídeos com IA que transforma texto em vídeo. Ideal para aprendizado e desenvolvimento.",
     "tags": [
       "videogenerator"
     ],
