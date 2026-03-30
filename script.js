@@ -32,14 +32,10 @@ function buildInitials(name) {
   return name.replace(/[^a-zA-Z0-9]/g, ' ').trim().split(' ').filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
 }
 
-// ===== WEB3FORMS =====
-// Chave para receber sugestões de ferramentas por e-mail (backup).
-const WEB3FORMS_KEY = '28d9b331-0e5a-4076-baac-21e07359b6f4';
-
 // ===== GOOGLE SHEETS =====
 // Cole aqui a URL gerada ao implantar o apps-script.js no Google Sheets.
 // Instruções completas em: apps-script.js
-const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzoIqCBmghoucpwLGcea1xoGnbTKrzF0eNtCxEoIeoMdT9mpaZzVi6rZG-BgSvtSpxX/exec';
+const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz7NlRP1IYDMUWFomFupVc3N18-mpyeriXz2w7dge39m_5eJhRZzvXdqZou-ihZ67Da9A/exec';
 
 // ===== ESTADO =====
 const PAGE_SIZE = 30;
@@ -325,25 +321,9 @@ async function submitTool() {
   btn.textContent = 'Enviando...';
 
   try {
-    // 1. Google Sheets — envia os dados para a planilha (sem ler resposta por limitação de CORS)
     if (SHEETS_ENDPOINT) {
       const params = new URLSearchParams({ nome: name, url, categoria: cat, preco: price, descricao: desc, email });
       fetch(SHEETS_ENDPOINT, { method: 'POST', mode: 'no-cors', body: params });
-    }
-
-    // 2. Web3Forms — envia cópia por e-mail
-    if (WEB3FORMS_KEY) {
-      const data = new FormData();
-      data.append('access_key', WEB3FORMS_KEY);
-      data.append('subject', 'Sugestão de ferramenta — tidev.ia');
-      data.append('from_name', 'tidev.ia Hub');
-      data.append('nome_ferramenta', name);
-      data.append('url', url);
-      data.append('categoria', cat);
-      data.append('preco', price);
-      data.append('descricao', desc);
-      if (email) data.append('email_indicador', email);
-      await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
     }
 
     showFormSuccess();
