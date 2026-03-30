@@ -255,8 +255,8 @@ function renderCard(t) {
     <div class="tool-top">
       <div>
         <div class="tool-icon">
-          <img src="${logoUrl}" alt="${escapeHtml(t.name)}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
-          <span class="tool-icon-fallback" style="display:none">${escapeHtml(initials)}</span>
+          <img src="${logoUrl}" alt="${escapeHtml(t.name)}" loading="lazy" class="logo-img" />
+          <span class="tool-icon-fallback" aria-hidden="true">${escapeHtml(initials)}</span>
         </div>
         <div class="tool-name">${escapeHtml(t.name)}</div>
         <div class="tool-cat">${escapeHtml(catDisplay)}</div>
@@ -284,8 +284,8 @@ function buildRecem() {
     return `<article class="new-card ${escapeHtml(t.cat)}">
       <span class="new-badge">NOVO</span>
       <div class="new-card-icon">
-        <img src="${logo}" alt="${escapeHtml(t.name)}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
-        <span class="tool-icon-fallback" style="display:none;width:100%;height:100%;border-radius:10px">${escapeHtml(init)}</span>
+        <img src="${logo}" alt="${escapeHtml(t.name)}" loading="lazy" class="logo-img" />
+        <span class="tool-icon-fallback" aria-hidden="true" style="width:100%;height:100%;border-radius:10px">${escapeHtml(init)}</span>
       </div>
       <div class="new-card-name">${escapeHtml(t.name)}</div>
       <div class="new-card-cat">${escapeHtml(catLabel(t.cat) + sub)}</div>
@@ -532,6 +532,17 @@ function initEventListeners() {
 
   // Formulário
   document.querySelector('.form-btn').addEventListener('click', submitTool);
+
+  // Logo fallback — onerror não funciona com CSP sem unsafe-inline
+  document.addEventListener('error', e => {
+    if (e.target.tagName === 'IMG' && e.target.classList.contains('logo-img')) {
+      e.target.style.display = 'none';
+      const fallback = e.target.nextElementSibling;
+      if (fallback && fallback.classList.contains('tool-icon-fallback')) {
+        fallback.style.display = 'flex';
+      }
+    }
+  }, true);
 
   // Nav border on scroll
   window.addEventListener('scroll', () => {
