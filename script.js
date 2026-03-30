@@ -1,3 +1,13 @@
+// ===== UTILS =====
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 // ===== CONFIG =====
 const LOGO_TOKEN = 'pk_Kaw8UJfoTXOmvt_DWkqBnA';
 
@@ -115,7 +125,7 @@ function setCat(btn) {
     subRow.style.display = 'flex';
     subLabel.textContent = 'Tipo';
     subBtns.innerHTML = CAT_SUBS[activeCat].map(s =>
-      `<button class="filter-btn${s.v === 'all' ? ' active' : ''}" data-sub="${s.v}" onclick="setSub(this)">${s.l}</button>`
+      `<button class="filter-btn${s.v === 'all' ? ' active' : ''}" data-sub="${s.v}">${s.l}</button>`
     ).join('');
   } else {
     subRow.style.display = 'none';
@@ -197,35 +207,34 @@ function renderCard(t) {
   const priceMap   = {free:'Gratuito',freemium:'Freemium',paid:'Pago',affiliate:'Afiliado'};
   const priceClass = {free:'price-free',freemium:'price-freemium',paid:'price-paid',affiliate:'price-affiliate'};
   const subLabel   = (t.sub && subMap[t.sub]) ? (subIcon[t.sub] || '') + ' ' + subMap[t.sub] : '';
-  const subBadge   = subLabel ? `<span class="tool-tag" style="background:rgba(127,119,221,.15);color:#AFA9EC;border-color:#534AB7">${subLabel}</span>` : '';
+  const subBadge   = subLabel ? `<span class="tool-tag" style="background:rgba(127,119,221,.15);color:#AFA9EC;border-color:#534AB7">${escapeHtml(subLabel)}</span>` : '';
   const catDisplay = subLabel ? catLabel(t.cat) + ' · ' + subLabel : catLabel(t.cat);
-  const aff        = t.affiliate ? `<span class="affiliate-mark">💰 ${t.commission}</span>` : '';
+  const aff        = t.affiliate ? `<span class="affiliate-mark">💰 ${escapeHtml(t.commission)}</span>` : '';
   const isFav      = favs.has(t.name);
-  const tags       = t.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
+  const tags       = t.tags.map(tag => `<span class="tool-tag">${escapeHtml(tag)}</span>`).join('');
   const domain     = t.url.replace(/https?:\/\//, '').replace(/\/.*/, '').replace(/^www\./, '');
   const logoUrl    = `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&size=40&format=png`;
   const initials   = t.name.replace(/[^a-zA-Z0-9]/g, ' ').trim().split(' ').filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
-  const safeName   = t.name.replace(/'/g, "\\'");
 
-  return `<div class="tool-card ${t.cat}">
-    <button class="fav-btn${isFav ? ' active' : ''}" onclick="toggleFav('${safeName}',this)" title="Favoritar">${isFav ? '⭐' : '☆'}</button>
+  return `<div class="tool-card ${escapeHtml(t.cat)}">
+    <button class="fav-btn${isFav ? ' active' : ''}" data-fav="${escapeHtml(t.name)}" title="Favoritar">${isFav ? '⭐' : '☆'}</button>
     ${aff}
     <div class="tool-top">
       <div>
         <div class="tool-icon">
-          <img src="${logoUrl}" alt="${t.name}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
-          <span class="tool-icon-fallback" style="display:none">${initials}</span>
+          <img src="${logoUrl}" alt="${escapeHtml(t.name)}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
+          <span class="tool-icon-fallback" style="display:none">${escapeHtml(initials)}</span>
         </div>
-        <div class="tool-name">${t.name}</div>
-        <div class="tool-cat">${catDisplay}</div>
+        <div class="tool-name">${escapeHtml(t.name)}</div>
+        <div class="tool-cat">${escapeHtml(catDisplay)}</div>
       </div>
-      <span class="price-badge ${priceClass[t.price] || ''}">${priceMap[t.price] || t.price}</span>
+      <span class="price-badge ${priceClass[t.price] || ''}">${priceMap[t.price] || escapeHtml(t.price)}</span>
     </div>
-    <p class="tool-desc">${t.desc}</p>
+    <p class="tool-desc">${escapeHtml(t.desc)}</p>
     <div class="tool-bottom">
       <div class="tool-tags">${subBadge}${tags}</div>
       <a href="${t.url}" target="_blank" rel="noopener" class="tool-link"
-         onclick="gtag&&gtag('event','clique_ferramenta',{tool_name:'${safeName}',tool_cat:'${t.cat}',tool_price:'${t.price}'})">Acessar &#x2192;</a>
+         data-tool-name="${escapeHtml(t.name)}" data-tool-cat="${escapeHtml(t.cat)}" data-tool-price="${escapeHtml(t.price)}">Acessar &#x2192;</a>
     </div>
   </div>`;
 }
@@ -240,16 +249,16 @@ function buildRecem() {
     const domain = t.url.replace(/https?:\/\//, '').replace(/\/.*/, '').replace(/^www\./, '');
     const logo   = `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&size=40&format=png`;
     const init   = t.name.replace(/[^a-zA-Z0-9]/g, ' ').trim().split(' ').filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
-    return `<div class="new-card ${t.cat}">
+    return `<div class="new-card ${escapeHtml(t.cat)}">
       <span class="new-badge">NOVO</span>
       <div class="new-card-icon">
-        <img src="${logo}" alt="${t.name}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
-        <span class="tool-icon-fallback" style="display:none;width:100%;height:100%;border-radius:10px">${init}</span>
+        <img src="${logo}" alt="${escapeHtml(t.name)}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
+        <span class="tool-icon-fallback" style="display:none;width:100%;height:100%;border-radius:10px">${escapeHtml(init)}</span>
       </div>
-      <div class="new-card-name">${t.name}</div>
-      <div class="new-card-cat">${catLabel(t.cat)}${sub}</div>
-      <div class="new-card-desc">${t.desc}</div>
-      <a href="${t.url}" target="_blank" class="new-card-link">Acessar &#x2192;</a>
+      <div class="new-card-name">${escapeHtml(t.name)}</div>
+      <div class="new-card-cat">${escapeHtml(catLabel(t.cat) + sub)}</div>
+      <div class="new-card-desc">${escapeHtml(t.desc)}</div>
+      <a href="${t.url}" target="_blank" rel="noopener" class="new-card-link">Acessar &#x2192;</a>
     </div>`;
   }).join('');
 }
@@ -388,15 +397,6 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-// Fecha modal ao clicar no backdrop
-document.addEventListener('click', e => {
-  if (e.target.id === 'randomModal') closeModal();
-});
-
-// Fecha modal com Escape
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
 
 function showFormSuccess() {
   document.getElementById('formSuccess').style.display = 'block';
@@ -409,12 +409,6 @@ function showFormSuccess() {
 function toggleNav() {
   document.getElementById('mobileNav').classList.toggle('open');
 }
-document.addEventListener('click', e => {
-  const nav = document.getElementById('mobileNav');
-  if (nav.classList.contains('open') && !nav.contains(e.target) && !document.querySelector('.nav-burger').contains(e.target)) {
-    nav.classList.remove('open');
-  }
-});
 
 // ===== REVEAL ON SCROLL =====
 const obs = new IntersectionObserver(entries => {
@@ -422,10 +416,73 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// ===== NAV BORDER ON SCROLL =====
-window.addEventListener('scroll', () => {
-  document.querySelector('nav').style.borderBottomColor = scrollY > 30 ? 'rgba(83,74,183,0.25)' : '';
-});
+// ===== EVENT LISTENERS =====
+function initEventListeners() {
+  // Nav mobile
+  document.querySelector('.nav-burger').addEventListener('click', toggleNav);
+  document.querySelectorAll('.mobile-nav a').forEach(a => a.addEventListener('click', toggleNav));
+  document.addEventListener('click', e => {
+    const nav = document.getElementById('mobileNav');
+    if (nav.classList.contains('open') && !nav.contains(e.target) && !document.querySelector('.nav-burger').contains(e.target)) {
+      nav.classList.remove('open');
+    }
+  });
+
+  // Busca
+  document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+  // Filtros de categoria e preço
+  document.querySelectorAll('[data-cat]').forEach(btn => btn.addEventListener('click', () => setCat(btn)));
+  document.querySelectorAll('[data-price]').forEach(btn => btn.addEventListener('click', () => setPrice(btn)));
+
+  // Subcategorias — delegação (botões gerados dinamicamente em setCat)
+  document.getElementById('subBtns').addEventListener('click', e => {
+    const btn = e.target.closest('[data-sub]');
+    if (btn) setSub(btn);
+  });
+
+  // Favoritos
+  document.getElementById('favAllBtn').addEventListener('click', () => setFavFilter('all'));
+  document.getElementById('favOnlyBtn').addEventListener('click', () => setFavFilter('fav'));
+  document.querySelector('.fav-clear').addEventListener('click', clearFavs);
+
+  // Catálogo — delegação para fav-btn e tool-link (cards gerados dinamicamente)
+  document.getElementById('toolsGrid').addEventListener('click', e => {
+    const favBtn = e.target.closest('.fav-btn');
+    if (favBtn) { toggleFav(favBtn.dataset.fav, favBtn); return; }
+
+    const toolLink = e.target.closest('.tool-link');
+    if (toolLink && typeof gtag !== 'undefined') {
+      gtag('event', 'clique_ferramenta', {
+        tool_name: toolLink.dataset.toolName,
+        tool_cat: toolLink.dataset.toolCat,
+        tool_price: toolLink.dataset.toolPrice
+      });
+    }
+  });
+
+  // Carregar mais
+  document.getElementById('loadMoreBtn').addEventListener('click', loadMore);
+
+  // Ferramenta aleatória
+  document.querySelector('.btn-random').addEventListener('click', discoverRandom);
+  document.querySelector('#randomModal .btn-secondary').addEventListener('click', discoverRandom);
+
+  // Modal
+  document.querySelector('.modal-close').addEventListener('click', closeModal);
+  document.addEventListener('click', e => { if (e.target.id === 'randomModal') closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // Formulário
+  document.querySelector('.form-btn').addEventListener('click', submitTool);
+
+  // Nav border on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.borderBottomColor = scrollY > 30 ? 'rgba(83,74,183,0.25)' : '';
+  });
+}
+
+initEventListeners();
 
 // ===== INIT — carrega tools.json e inicializa tudo =====
 fetch('tools.json')

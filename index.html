@@ -40,15 +40,15 @@
     <li><a href="#enviar">Enviar ferramenta</a></li>
     <li><a href="#contato" class="nav-cta">Falar conosco →</a></li>
   </ul>
-  <button class="nav-burger" onclick="toggleNav()" aria-label="menu">☰</button>
+  <button class="nav-burger" aria-label="menu">☰</button>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="#como-funciona" onclick="toggleNav()">Como funciona</a>
-  <a href="#solucoes" onclick="toggleNav()">Soluções</a>
-  <a href="#recem-adicionadas" onclick="toggleNav()">Novidades</a>
-  <a href="#enviar" onclick="toggleNav()">Enviar ferramenta</a>
-  <a href="#contato" onclick="toggleNav()">Falar conosco →</a>
+  <a href="#como-funciona">Como funciona</a>
+  <a href="#solucoes">Soluções</a>
+  <a href="#recem-adicionadas">Novidades</a>
+  <a href="#enviar">Enviar ferramenta</a>
+  <a href="#contato">Falar conosco →</a>
 </div>
 
 <!-- HERO -->
@@ -143,7 +143,7 @@
 
     <!-- BOTÃO ALEATÓRIO -->
     <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
-      <button class="btn-random" onclick="discoverRandom()">
+      <button class="btn-random">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 5h2l1-2 2 6 2-4 1 2h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 1l2 2-2 2M10 9l2 2-2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         🎲 Descobrir ferramenta
       </button>
@@ -152,20 +152,20 @@
     <!-- SEARCH -->
     <div class="search-wrap">
       <svg class="search-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="#888780" stroke-width="1.3"/><line x1="11" y1="11" x2="14" y2="14" stroke="#888780" stroke-width="1.3" stroke-linecap="round"/></svg>
-      <input type="text" class="search-input" placeholder="Buscar ferramenta... ex: chatbot, edição de vídeo, automação" id="searchInput" oninput="applyFilters()" aria-label="Buscar ferramenta">
+      <input type="text" class="search-input" placeholder="Buscar ferramenta... ex: chatbot, edição de vídeo, automação" id="searchInput" aria-label="Buscar ferramenta">
     </div>
 
     <!-- FILTERS -->
     <div class="filter-wrap">
       <div class="filter-row">
         <span class="filter-label">Categoria</span>
-        <button class="filter-btn active" data-cat="all" onclick="setCat(this)" aria-pressed="true">Todas</button>
-        <button class="filter-btn cat-ti" data-cat="ti" onclick="setCat(this)" aria-pressed="false">🖥️ TI</button>
-        <button class="filter-btn cat-dev" data-cat="dev" onclick="setCat(this)" aria-pressed="false">💻 Dev</button>
-        <button class="filter-btn cat-ia" data-cat="ia" onclick="setCat(this)" aria-pressed="false">🤖 IA</button>
-        <button class="filter-btn cat-video" data-cat="video" onclick="setCat(this)" aria-pressed="false">🎬 Vídeo</button>
-        <button class="filter-btn cat-design" data-cat="design" onclick="setCat(this)" aria-pressed="false">🎨 Design</button>
-        <button class="filter-btn cat-prod" data-cat="prod" onclick="setCat(this)" aria-pressed="false">⚡ Produtividade</button>
+        <button class="filter-btn active" data-cat="all" aria-pressed="true">Todas</button>
+        <button class="filter-btn cat-ti" data-cat="ti" aria-pressed="false">🖥️ TI</button>
+        <button class="filter-btn cat-dev" data-cat="dev" aria-pressed="false">💻 Dev</button>
+        <button class="filter-btn cat-ia" data-cat="ia" aria-pressed="false">🤖 IA</button>
+        <button class="filter-btn cat-video" data-cat="video" aria-pressed="false">🎬 Vídeo</button>
+        <button class="filter-btn cat-design" data-cat="design" aria-pressed="false">🎨 Design</button>
+        <button class="filter-btn cat-prod" data-cat="prod" aria-pressed="false">⚡ Produtividade</button>
       </div>
       <div class="filter-row sub-row" id="subRow" style="display:none">
         <span class="filter-label sub-label" id="subLabel">Tipo</span>
@@ -173,26 +173,26 @@
       </div>
       <div class="filter-row">
         <span class="filter-label">Preço</span>
-        <button class="filter-btn active" data-price="all" onclick="setPrice(this)" aria-pressed="true">Todos</button>
-        <button class="filter-btn" data-price="free" onclick="setPrice(this)" aria-pressed="false">Gratuito</button>
-        <button class="filter-btn" data-price="freemium" onclick="setPrice(this)" aria-pressed="false">Freemium</button>
-        <button class="filter-btn" data-price="paid" onclick="setPrice(this)" aria-pressed="false">Pago</button>
-        <button class="filter-btn" data-price="affiliate" onclick="setPrice(this)" aria-pressed="false">🔗 Afiliado</button>
+        <button class="filter-btn active" data-price="all" aria-pressed="true">Todos</button>
+        <button class="filter-btn" data-price="free" aria-pressed="false">Gratuito</button>
+        <button class="filter-btn" data-price="freemium" aria-pressed="false">Freemium</button>
+        <button class="filter-btn" data-price="paid" aria-pressed="false">Pago</button>
+        <button class="filter-btn" data-price="affiliate" aria-pressed="false">🔗 Afiliado</button>
       </div>
     </div>
 
     <div class="fav-bar" id="favBar">
       <span class="fav-bar-label">Favoritos</span>
       <span class="fav-bar-count" id="favCount">0</span>
-      <button class="fav-filter-btn" id="favAllBtn" onclick="setFavFilter('all')">Todas</button>
-      <button class="fav-filter-btn" id="favOnlyBtn" onclick="setFavFilter('fav')">⭐ Só favoritos</button>
-      <button class="fav-clear" onclick="clearFavs()">Limpar favoritos</button>
+      <button class="fav-filter-btn" id="favAllBtn">Todas</button>
+      <button class="fav-filter-btn" id="favOnlyBtn">⭐ Só favoritos</button>
+      <button class="fav-clear">Limpar favoritos</button>
     </div>
     <div class="catalog-count" id="catalogCount"></div>
     <div class="tools-grid" id="toolsGrid"></div>
     <div class="no-results" id="noResults">Nenhuma ferramenta encontrada. Tente outro termo.</div>
     <div id="loadMoreWrap" style="display:none;text-align:center;margin-top:28px">
-      <button class="btn-secondary" id="loadMoreBtn" onclick="loadMore()">Carregar mais ferramentas</button>
+      <button class="btn-secondary" id="loadMoreBtn">Carregar mais ferramentas</button>
       <div style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px" id="loadMoreInfo"></div>
     </div>
   </div>
@@ -377,7 +377,7 @@
           <label class="form-label" for="ft-email">Seu e-mail (opcional)</label>
           <input type="email" class="form-input" id="ft-email" placeholder="para te dar crédito na indicação">
         </div>
-        <button class="form-btn" onclick="submitTool()">Enviar sugestão →</button>
+        <button class="form-btn">Enviar sugestão →</button>
         <div class="form-success" id="formSuccess">
           <span class="form-success-icon">✅</span>
           <p class="form-success-text">Sugestão recebida! Avaliaremos em até 48h.</p>
@@ -404,7 +404,7 @@
 <!-- MODAL FERRAMENTA ALEATÓRIA -->
 <div class="modal-overlay" id="randomModal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    <button class="modal-close" aria-label="Fechar">✕</button>
     <div id="modal-context" style="display:none;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;margin-bottom:16px"></div>
     <div class="modal-head">
       <div class="modal-icon">
@@ -423,7 +423,7 @@
       <a id="modal-link" href="#" target="_blank" rel="noopener" class="btn-primary">
         Acessar ferramenta &#x2192;
       </a>
-      <button class="btn-secondary" onclick="discoverRandom()" title="Sortear outra">🎲</button>
+      <button class="btn-secondary" title="Sortear outra">🎲</button>
     </div>
   </div>
 </div>
