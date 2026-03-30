@@ -5,7 +5,7 @@
   --dark3:#2C2C2A;
   --border:#2E2E2C;
   --border2:#3A3A38;
-  --muted:#5F5E5A;
+  --muted:#7A7975;
   --subtle:#888780;
   --cream:#F1EFE8;
   --white:#fff;
@@ -23,6 +23,8 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+:focus-visible{outline:2px solid var(--purple);outline-offset:3px;border-radius:4px}
+:focus:not(:focus-visible){outline:none}
 body{background:var(--black);color:var(--cream);font-family:var(--display);overflow-x:hidden}
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:var(--black)}
@@ -426,3 +428,16 @@ footer{position:relative;z-index:1;padding:36px 5vw;border-top:.5px solid var(--
 }
 .new-card-icon img{width:32px;height:32px;object-fit:contain;border-radius:6px}
 .new-card-icon{width:40px;height:40px;border-radius:10px;border:.5px solid var(--border2);background:var(--dark3);display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:10px}
+
+/* SKELETON LOADER */
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel{background:linear-gradient(90deg,var(--dark3) 25%,var(--dark2) 50%,var(--dark3) 75%);background-size:200% 100%;animation:shimmer 1.6s infinite;border-radius:6px}
+.tool-card.skeleton{pointer-events:none;gap:14px}
+.skel-icon{width:40px;height:40px;border-radius:10px;flex-shrink:0}
+.skel-row{display:flex;align-items:center;gap:12px}
+.skel-lines{display:flex;flex-direction:column;gap:6px;flex:1}
+.skel-title{height:14px;width:55%}
+.skel-sub{height:10px;width:35%}
+.skel-desc{height:11px;width:100%}
+.skel-desc-short{height:11px;width:72%}
+.skel-footer{height:10px;width:40%;margin-top:auto}

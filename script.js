@@ -1,3 +1,9 @@
+// ===== GOOGLE ANALYTICS 4 =====
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MY3DPLNT9P');
+
 // ===== UTILS =====
 function escapeHtml(str) {
   return String(str)
@@ -10,6 +16,21 @@ function escapeHtml(str) {
 
 // ===== CONFIG =====
 const LOGO_TOKEN = 'pk_Kaw8UJfoTXOmvt_DWkqBnA';
+
+// ===== SAFE URL =====
+function safeUrl(url) {
+  return /^https?:\/\//.test(url) ? url : '#';
+}
+
+// ===== HELPERS DE ÍCONE =====
+function buildLogoUrl(url) {
+  const domain = url.replace(/https?:\/\//, '').replace(/\/.*/, '').replace(/^www\./, '');
+  return `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&size=40&format=png`;
+}
+
+function buildInitials(name) {
+  return name.replace(/[^a-zA-Z0-9]/g, ' ').trim().split(' ').filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+}
 
 // ===== WEB3FORMS =====
 // Chave para receber sugestões de ferramentas por e-mail (backup).
@@ -93,15 +114,28 @@ function setFavFilter(mode) {
 }
 
 function clearFavs() {
-  if (!confirm('Limpar todos os favoritos?')) return;
-  favs.clear();
-  saveFavs();
-  if (favFilter === 'fav') {
-    favFilter = 'all';
-    document.getElementById('favAllBtn').classList.add('active');
-    document.getElementById('favOnlyBtn').classList.remove('active');
+  const btn = document.querySelector('.fav-clear');
+  if (btn.dataset.confirming) {
+    favs.clear();
+    saveFavs();
+    delete btn.dataset.confirming;
+    btn.textContent = 'Limpar favoritos';
+    if (favFilter === 'fav') {
+      favFilter = 'all';
+      document.getElementById('favAllBtn').classList.add('active');
+      document.getElementById('favOnlyBtn').classList.remove('active');
+    }
+    applyFilters();
+  } else {
+    btn.dataset.confirming = '1';
+    btn.textContent = 'Tem certeza? Clique para confirmar';
+    setTimeout(() => {
+      if (btn.dataset.confirming) {
+        delete btn.dataset.confirming;
+        btn.textContent = 'Limpar favoritos';
+      }
+    }, 3000);
   }
-  applyFilters();
 }
 
 function updateFavBar() {
@@ -212,11 +246,10 @@ function renderCard(t) {
   const aff        = t.affiliate ? `<span class="affiliate-mark">💰 ${escapeHtml(t.commission)}</span>` : '';
   const isFav      = favs.has(t.name);
   const tags       = t.tags.map(tag => `<span class="tool-tag">${escapeHtml(tag)}</span>`).join('');
-  const domain     = t.url.replace(/https?:\/\//, '').replace(/\/.*/, '').replace(/^www\./, '');
-  const logoUrl    = `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&size=40&format=png`;
-  const initials   = t.name.replace(/[^a-zA-Z0-9]/g, ' ').trim().split(' ').filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+  const logoUrl    = buildLogoUrl(t.url);
+  const initials   = buildInitials(t.name);
 
-  return `<div class="tool-card ${escapeHtml(t.cat)}">
+  return `<article class="tool-card ${escapeHtml(t.cat)}">
     <button class="fav-btn${isFav ? ' active' : ''}" data-fav="${escapeHtml(t.name)}" title="Favoritar">${isFav ? '⭐' : '☆'}</button>
     ${aff}
     <div class="tool-top">
@@ -233,10 +266,10 @@ function renderCard(t) {
     <p class="tool-desc">${escapeHtml(t.desc)}</p>
     <div class="tool-bottom">
       <div class="tool-tags">${subBadge}${tags}</div>
-      <a href="${t.url}" target="_blank" rel="noopener" class="tool-link"
+      <a href="${safeUrl(t.url)}" target="_blank" rel="noopener" class="tool-link"
          data-tool-name="${escapeHtml(t.name)}" data-tool-cat="${escapeHtml(t.cat)}" data-tool-price="${escapeHtml(t.price)}">Acessar &#x2192;</a>
     </div>
-  </div>`;
+  </article>`;
 }
 
 // ===== RECÉM ADICIONADAS =====
@@ -246,10 +279,9 @@ function buildRecem() {
   const recent = tools.slice().reverse().slice(0, 30);
   scroll.innerHTML = recent.map(t => {
     const sub    = t.sub ? ' · ' + t.sub : '';
-    const domain = t.url.replace(/https?:\/\//, '').replace(/\/.*/, '').replace(/^www\./, '');
-    const logo   = `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&size=40&format=png`;
-    const init   = t.name.replace(/[^a-zA-Z0-9]/g, ' ').trim().split(' ').filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
-    return `<div class="new-card ${escapeHtml(t.cat)}">
+    const logo   = buildLogoUrl(t.url);
+    const init   = buildInitials(t.name);
+    return `<article class="new-card ${escapeHtml(t.cat)}">
       <span class="new-badge">NOVO</span>
       <div class="new-card-icon">
         <img src="${logo}" alt="${escapeHtml(t.name)}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
@@ -258,8 +290,8 @@ function buildRecem() {
       <div class="new-card-name">${escapeHtml(t.name)}</div>
       <div class="new-card-cat">${escapeHtml(catLabel(t.cat) + sub)}</div>
       <div class="new-card-desc">${escapeHtml(t.desc)}</div>
-      <a href="${t.url}" target="_blank" rel="noopener" class="new-card-link">Acessar &#x2192;</a>
-    </div>`;
+      <a href="${safeUrl(t.url)}" target="_blank" rel="noopener" class="new-card-link">Acessar &#x2192;</a>
+    </article>`;
   }).join('');
 }
 
@@ -285,7 +317,7 @@ async function submitTool() {
     return;
   }
 
-  const price = document.getElementById('ft-price').value;
+  const price = document.getElementById('ft-price').value || 'free';
   const email = document.getElementById('ft-email').value.trim();
   const btn   = document.querySelector('.form-btn');
 
@@ -358,14 +390,16 @@ function discoverRandom() {
   openModal(tool, context);
 }
 
+let _modalTrigger = null;
+let _modalFocusTrap = null;
+
 function openModal(t, context = '') {
   const priceMap   = {free:'Gratuito',freemium:'Freemium',paid:'Pago',affiliate:'Afiliado'};
   const priceClass = {free:'price-free',freemium:'price-freemium',paid:'price-paid',affiliate:'price-affiliate'};
   const subLabel   = (t.sub && subMap[t.sub]) ? (subIcon[t.sub] || '') + ' ' + subMap[t.sub] : '';
   const catDisplay = subLabel ? catLabel(t.cat) + ' · ' + subLabel : catLabel(t.cat);
-  const domain     = t.url.replace(/https?:\/\//, '').replace(/\/.*/, '').replace(/^www\./, '');
-  const logoUrl    = `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&size=40&format=png`;
-  const initials   = t.name.replace(/[^a-zA-Z0-9]/g, ' ').trim().split(' ').filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+  const logoUrl    = buildLogoUrl(t.url);
+  const initials   = buildInitials(t.name);
   const tags       = t.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
 
   document.getElementById('modal-icon-img').src = logoUrl;
@@ -382,7 +416,7 @@ function openModal(t, context = '') {
   document.getElementById('modal-price').className = 'price-badge ' + (priceClass[t.price] || '');
   document.getElementById('modal-desc').textContent = t.desc;
   document.getElementById('modal-tags').innerHTML = tags;
-  document.getElementById('modal-link').href = t.url;
+  document.getElementById('modal-link').href = safeUrl(t.url);
 
   const ctxEl = document.getElementById('modal-context');
   if (ctxEl) { ctxEl.textContent = context; ctxEl.style.display = context ? 'block' : 'none'; }
@@ -390,16 +424,39 @@ function openModal(t, context = '') {
   const modal = document.getElementById('randomModal');
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  // Guarda foco anterior e move foco para dentro do modal
+  _modalTrigger = document.activeElement;
+  requestAnimationFrame(() => modal.querySelector('.modal-close').focus());
+
+  // Prende o Tab dentro do modal
+  _modalFocusTrap = e => {
+    if (e.key !== 'Tab') return;
+    const focusable = [...modal.querySelectorAll('a[href], button:not([disabled])')];
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  };
+  modal.addEventListener('keydown', _modalFocusTrap);
 }
 
 function closeModal() {
-  document.getElementById('randomModal').classList.remove('open');
+  const modal = document.getElementById('randomModal');
+  modal.classList.remove('open');
   document.body.style.overflow = '';
+  if (_modalFocusTrap) { modal.removeEventListener('keydown', _modalFocusTrap); _modalFocusTrap = null; }
+  if (_modalTrigger)   { _modalTrigger.focus(); _modalTrigger = null; }
 }
 
 
 function showFormSuccess() {
-  document.getElementById('formSuccess').style.display = 'block';
+  const el = document.getElementById('formSuccess');
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   ['ft-name','ft-url','ft-cat','ft-desc','ft-email'].forEach(id => {
     document.getElementById(id).value = '';
   });
@@ -484,10 +541,45 @@ function initEventListeners() {
 
 initEventListeners();
 
+// ===== SKELETON LOADER =====
+function showSkeleton(n = 6) {
+  document.getElementById('toolsGrid').innerHTML = Array.from({ length: n }, () => `
+    <div class="tool-card skeleton">
+      <div class="skel-row">
+        <div class="skel skel-icon"></div>
+        <div class="skel-lines">
+          <div class="skel skel-title"></div>
+          <div class="skel skel-sub"></div>
+        </div>
+      </div>
+      <div class="skel skel-desc"></div>
+      <div class="skel skel-desc-short"></div>
+      <div class="skel skel-footer"></div>
+    </div>
+  `).join('');
+}
+
+// ===== VALIDAÇÃO DE TOOLS.JSON =====
+function validateTools(data) {
+  const required = ['name', 'cat', 'sub', 'price', 'desc', 'tags', 'url'];
+  data.forEach((t, i) => {
+    required.forEach(field => {
+      if (t[field] === undefined || t[field] === null || t[field] === '') {
+        console.warn(`tools.json [${i}] "${t.name || '?'}": campo "${field}" ausente ou vazio`);
+      }
+    });
+    if (t.url && !/^https?:\/\//.test(t.url)) {
+      console.warn(`tools.json [${i}] "${t.name}": URL inválida — "${t.url}"`);
+    }
+  });
+}
+
 // ===== INIT — carrega tools.json e inicializa tudo =====
+showSkeleton();
 fetch('tools.json')
   .then(r => r.json())
   .then(data => {
+    validateTools(data);
     tools = data;
     updateStats();
     applyFilters();

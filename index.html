@@ -15,16 +15,12 @@
 <title>tidev.ia — 600+ Ferramentas Gratuitas de TI, Dev e IA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;600;700;800&display=swap" as="style">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="tools.json" as="fetch" crossorigin>
 <link rel="stylesheet" href="style.css">
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY3DPLNT9P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MY3DPLNT9P');
-</script>
 </head>
 <body>
 
@@ -364,6 +360,7 @@
         <div class="form-group">
           <label class="form-label" for="ft-price">Preço</label>
           <select class="form-select" id="ft-price">
+            <option value="" disabled selected>Selecione o modelo de preço...</option>
             <option value="free">Gratuito</option>
             <option value="freemium">Freemium</option>
             <option value="paid">Pago</option>
