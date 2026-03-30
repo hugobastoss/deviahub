@@ -207,6 +207,9 @@ footer{position:relative;z-index:1;padding:36px 5vw;border-top:.5px solid var(--
 .footer-links a{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:var(--purple)}
 .footer-copy{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.footer-dev{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.footer-dev a{color:var(--subtle);text-decoration:none;border-bottom:.5px solid var(--border2)}
+.footer-dev a:hover{color:var(--cream)}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
