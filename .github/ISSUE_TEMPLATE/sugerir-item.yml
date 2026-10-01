@@ -1,0 +1,82 @@
+name: Sugerir ferramenta
+description: Indique uma ferramenta de IA, desenvolvimento, design, vídeo ou produtividade para o catálogo.
+title: "[Sugestão] "
+labels: ["sugestão"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por sugerir! Antes de enviar, confira se a ferramenta já não está no [catálogo](https://deviahub.vercel.app/).
+  - type: input
+    id: nome
+    attributes:
+      label: Nome
+      placeholder: "ex.: ElevenLabs"
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: Site oficial (https).
+      placeholder: https://exemplo.com
+    validations:
+      required: true
+  - type: dropdown
+    id: categoria
+    attributes:
+      label: Categoria
+      options:
+        - IA
+        - Dev
+        - Design
+        - Vídeo
+        - Produtividade
+        - TI
+    validations:
+      required: true
+  - type: input
+    id: subcategoria
+    attributes:
+      label: Subcategoria
+      description: Veja as subcategorias nos filtros do catálogo. Se nenhuma servir, sugira uma.
+      placeholder: "ex.: Voz e áudio, Imagem, No-code, Marketing e CRM"
+    validations:
+      required: true
+  - type: dropdown
+    id: preco
+    attributes:
+      label: Preço
+      options:
+        - Gratuito
+        - Freemium
+        - Pago
+    validations:
+      required: true
+  - type: textarea
+    id: descricao
+    attributes:
+      label: O que faz
+      description: Uma ou duas frases.
+    validations:
+      required: true
+  - type: textarea
+    id: porque
+    attributes:
+      label: Por que você recomenda
+      description: Conte como você usa e o que ganhou com isso. É o que torna a recomendação útil.
+    validations:
+      required: true
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Palavras-chave curtas, separadas por vírgula.
+      placeholder: "ex.: voz, dublagem, api"
+  - type: checkboxes
+    id: confirmacao
+    attributes:
+      label: Confirmação
+      options:
+        - label: Usei ou testei esta ferramenta.
+          required: true

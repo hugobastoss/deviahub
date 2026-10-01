@@ -121,7 +121,7 @@ Qualquer campo fora dessa lista é erro.
 
 **Ordem dos itens:** a ordem do arquivo é mantida, e a curadoria deixa os
 principais primeiro. Diferente do DevSkillsHub, não há ordenação alfabética:
-com ~610 itens, ela colocaria nomes pouco conhecidos no topo.
+com ~609 itens, ela colocaria nomes pouco conhecidos no topo.
 
 ### Migração de `tools.json`
 
@@ -162,6 +162,8 @@ Um script avulso (fora do repositório, no scratchpad) converte `tools.json` em
   - "Otter.ai" (ia/voz) absorve "Otter AI".
   - "You.com" absorve "You" e passa para ia/pesquisa.
   - "Vidyo.ai" (video/editor) absorve "Vidyo".
+  - "Designs.ai" (design/criacao) absorve "Designs AI". Esta sexta duplicata
+    apareceu na implementação: as URLs só diferiam pela barra final.
 - **Links corrigidos.** Produtos diferentes que dividiam a mesma URL ganham a
   página específica:
   - Whisper → `https://github.com/openai/whisper`
@@ -177,7 +179,7 @@ Um script avulso (fora do repositório, no scratchpad) converte `tools.json` em
 - **Removidos.** Detect GPT e ChatGPT Chrome Extension apontam para a raiz da
   Chrome Web Store e não têm um link oficial confiável.
 - **`https`.** O link `http://patterned.ai/` vira `https://patterned.ai/`.
-- **Resultado esperado:** 610 itens.
+- **Resultado:** 609 itens.
 
 ### Validador (`scripts/validar-itens.mjs`)
 
@@ -187,7 +189,10 @@ a lista de problemas com `itens[i] (id)`, saindo com código 1). Além disso:
 - `categorias` é um objeto, e cada categoria tem `nome` e `subcategorias`.
 - `categoria` e `subcategoria` de cada item existem na taxonomia.
 - `preco` é um dos três valores, e `afiliado`, quando existe, é booleano.
-- `link` é `https` e não se repete no catálogo.
+- `link` é `https` e não se repete no catálogo. A comparação ignora o
+  protocolo, o `www.` e a barra final.
+- Aceita um caminho opcional (`node scripts/validar-itens.mjs arquivo.json`),
+  usado para testar o validador contra cópias com erros.
 
 O CI (`.github/workflows/validar-itens.yml`) roda o validador em PRs e em pushes
 na `main` que mexem em `data/**` ou no próprio script, igual ao devskillshub.
@@ -238,7 +243,7 @@ O mesmo SVG serve de `favicon.svg` e do ícone do topo.
      vídeo e produtividade, separadas por categoria e preço."
    - Botões: "Explorar o catálogo" (cheio) e "Sugerir uma ferramenta" (contorno).
 3. **Catálogo** (`#catalogo`):
-   - Título "Catálogo" e a contagem "N de 610 ferramentas" (`aria-live="polite"`).
+   - Título "Catálogo" e a contagem "N de 609 ferramentas" (`aria-live="polite"`).
    - Busca que ignora acentos e maiúsculas, nos campos `nome`, `descricao`,
      `porque`, `tags` e nos nomes de categoria e subcategoria.
    - Grupos de pílulas com `aria-pressed`:
@@ -282,8 +287,8 @@ O mesmo SVG serve de `favicon.svg` e do ícone do topo.
      vazia, o botão fica desabilitado.
    - **Conteúdo:**
      - A linha de contexto "Sorteando entre 112 ferramentas · IA · Gratuito".
-     - O card da ferramenta.
-     - Os botões "Acessar →" e "Sortear outra".
+     - O card da ferramenta, que já traz o coração e o "Acessar →".
+     - O botão "Sortear outra".
      - O botão fechar (×).
 6. **Sugerir** (`#sugerir`):
    - Uma caixa com o título "Conhece uma ferramenta que merece estar aqui?".
@@ -349,7 +354,7 @@ O mesmo SVG serve de `favicon.svg` e do ícone do topo.
     ```
 - **`.vercelignore`:** `scripts/`, `.github/`, `docs/`, `*.md`.
 - **Plano Hobby:** é para uso não comercial. Sites cujo propósito principal são
-  links de afiliado contam como comerciais; aqui são 16 de 610 itens.
+  links de afiliado contam como comerciais; aqui são 16 de 609 itens.
 
 ### Netlify
 
@@ -383,7 +388,7 @@ redirecionar até o vínculo ser refeito no painel da Netlify. Nada quebra.
 
 ## Verificação
 
-- `node scripts/validar-itens.mjs` imprime "OK: 610 itens válidos.".
+- `node scripts/validar-itens.mjs` imprime "OK: 609 itens válidos.".
 - **O validador reprova** uma cópia temporária do catálogo com erros
   conhecidos:
   - id repetido;
