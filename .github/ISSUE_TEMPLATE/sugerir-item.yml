@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Obrigado por sugerir! Antes de enviar, confira se a ferramenta já não está no [catálogo](https://deviahub.vercel.app/).
+        Obrigado por sugerir! Antes de enviar, confira se a ferramenta já não está no [catálogo](https://hugobastoss.github.io/deviahub/).
   - type: input
     id: nome
     attributes:

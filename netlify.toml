@@ -1,6 +1,0 @@
-# O site mudou para a Vercel. Tudo em tidevia.netlify.app redireciona para lá.
-[[redirects]]
-  from = "/*"
-  to = "https://deviahub.vercel.app/:splat"
-  status = 301
-  force = true

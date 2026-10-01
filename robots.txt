@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://deviahub.vercel.app/sitemap.xml

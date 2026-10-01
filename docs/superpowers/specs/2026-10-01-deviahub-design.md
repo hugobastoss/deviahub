@@ -15,8 +15,7 @@ a mesma construção do DevSkillsHub e uma cor de destaque própria.
   bloco de sugestão e rodapé.
 - O repositório tem a mesma organização do devskillshub: HTML, CSS e JS
   estáticos, sem build, catálogo em JSON validado no CI e sugestões por issue.
-- O site está publicado na Vercel, e o endereço antigo da Netlify redireciona
-  para ele.
+- O site está publicado no GitHub Pages, como o devskillshub.
 
 ## Decisões tomadas
 
@@ -28,7 +27,7 @@ a mesma construção do DevSkillsHub e uma cor de destaque própria.
 | Recursos removidos | "Recém adicionadas", Google Analytics 4, animações de entrada, skeleton, emojis nos filtros |
 | Cor de destaque | Laranja âmbar: `#FB923C` (escuro) / `#C2410C` (claro) |
 | Abordagem | Porte completo para o modelo do devskillshub (estrutura, schema em português, JS reescrito) |
-| Hospedagem | Vercel (`deviahub.vercel.app`), com redirect 301 a partir da Netlify |
+| Hospedagem | GitHub Pages (`hugobastoss.github.io/deviahub`). Revisado: a primeira versão previa Vercel com redirect da Netlify |
 | Repositório | Renomear `hugobastoss/TiDev-IA` para `hugobastoss/deviahub` |
 
 ## 1. Estrutura e dados
@@ -51,15 +50,12 @@ scripts/
   workflows/validar-itens.yml
 README.md
 CONTRIBUTING.md
-vercel.json
-.vercelignore
-netlify.toml              # só o redirect 301 para a Vercel
-robots.txt
+.nojekyll
 sitemap.xml
 .gitignore
 ```
 
-**Removidos:** `script.js`, `style.css`, `tools.json`, `apps-script.js`, `img/`,
+**Removidos:** `netlify.toml`, `robots.txt`, `script.js`, `style.css`, `tools.json`, `apps-script.js`, `img/`,
 `tidev-ia-icon.svg` e `.claude/worktrees/` (cópia antiga do site versionada por
 engano; `.claude/` vai para o `.gitignore`).
 
@@ -312,10 +308,11 @@ O mesmo SVG serve de `favicon.svg` e do ícone do topo.
 
 - `<title>`: "DevIAHub — Ferramentas de IA, desenvolvimento e produtividade".
 - `description`, `og:*`, `canonical` e `og:url` apontam para
-  `https://deviahub.vercel.app/`.
+  `https://hugobastoss.github.io/deviahub/`.
 - `theme-color` é `#0B0C0F` e `color-scheme` é `dark light`.
 - Sem `og:image`, como no irmão.
-- `sitemap.xml` e `robots.txt` são atualizados para a URL nova.
+- `sitemap.xml` é atualizado para a URL nova.
+- A CSP vai numa `<meta http-equiv>` (ver parte 3).
 
 ### Formulário de issue (`sugerir-item.yml`)
 
@@ -333,58 +330,43 @@ O mesmo SVG serve de `favicon.svg` e do ícone do topo.
 
 ## 3. Deploy e migração
 
-### Vercel
+> Revisado em 2026-10-01: a hospedagem mudou da Vercel para o **GitHub Pages**,
+> como no devskillshub. A Netlify foi descartada sem redirect (o projeto lá será
+> excluído pelo dono), então os links para `tidevia.netlify.app` deixam de
+> funcionar.
 
-- O projeto `deviahub` usa o preset "Other", sem comando de build e com saída
-  na raiz.
-- **`vercel.json`:**
-  - `data/itens.json` → `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`.
-  - Os demais arquivos ficam com o cache padrão da Vercel (revalida a cada
-    acesso). Isso corrige o problema atual: o CSS tinha `max-age=31536000,
-    immutable` sem mudar de nome, e quem já visitou podia ficar com o CSS
-    antigo por um ano.
-  - Todas as rotas recebem `X-Frame-Options: DENY`, `X-Content-Type-Options:
-    nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`,
-    `Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()`
-    e esta CSP:
-    ```
-    default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com;
-    font-src https://fonts.gstatic.com; img-src 'self' https://img.logo.dev data:;
-    connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
-    ```
-- **`.vercelignore`:** `scripts/`, `.github/`, `docs/`, `*.md`.
-- **Plano Hobby:** é para uso não comercial. Sites cujo propósito principal são
-  links de afiliado contam como comerciais; aqui são 16 de 609 itens.
+### GitHub Pages
 
-### Netlify
-
-O `netlify.toml` fica só com:
-
-```toml
-[[redirects]]
-  from = "/*"
-  to = "https://deviahub.vercel.app/:splat"
-  status = 301
-  force = true
-```
+- Publicado a partir da branch `main`, pasta raiz, em
+  `https://hugobastoss.github.io/deviahub/`.
+- `.nojekyll` na raiz, como no irmão.
+- **Cache:** o GitHub Pages usa `max-age=600` para tudo. Isso corrige o
+  problema antigo: o CSS tinha `max-age=31536000, immutable` sem mudar de nome,
+  e quem já visitou podia ficar com o CSS antigo por um ano.
+- **Segurança:** o Pages não aceita cabeçalhos próprios. A CSP vai numa
+  `<meta http-equiv>` logo após o `charset`:
+  ```
+  default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com;
+  font-src https://fonts.gstatic.com; img-src 'self' https://img.logo.dev data:;
+  connect-src 'self'; base-uri 'self'; form-action 'self'
+  ```
+  A `<meta>` não suporta `frame-ancestors`, e o `X-Frame-Options` não pode ser
+  definido. Por isso o site pode ser embutido em iframe por terceiros. O risco é
+  baixo para um catálogo sem login, e o devskillshub tem a mesma limitação.
+- Sem `robots.txt`: dentro de uma subpasta (`/deviahub/`) ele não tem efeito.
+  O `sitemap.xml` continua e pode ser enviado ao Search Console.
 
 ### Ordem de execução
 
 1. Implementar tudo na branch `feat/deviahub` (esta spec é o primeiro commit).
 2. **Renomear o repositório:** `gh repo rename deviahub` e
    `git remote set-url origin https://github.com/hugobastoss/deviahub.git`.
-   Feito por Claude, com aviso antes. O GitHub redireciona as URLs antigas.
-3. **Criar o projeto na Vercel** (você), importando `hugobastoss/deviahub`. A
-   Vercel gera o preview da branch `feat/deviahub` para conferir.
-4. **Merge na `main`.** Na mesma publicação, a Vercel entra em produção e a
-   Netlify passa a redirecionar.
-5. Se o nome `deviahub` estiver ocupado na Vercel, a URL muda em: `index.html`
-   (canonical e og:url), `sitemap.xml`, `robots.txt`, `netlify.toml` e
-   `README.md`.
-
-**Risco:** se a Netlify perder o vínculo com o repositório depois da renomeação,
-o commit do redirect não é publicado. O site antigo continua no ar sem
-redirecionar até o vínculo ser refeito no painel da Netlify. Nada quebra.
+   O GitHub redireciona as URLs antigas do repositório.
+3. **Merge na `main`** (fast-forward) e push.
+4. **Ativar o Pages** pela API (`main`, `/`) e esperar a primeira publicação.
+5. Criar o label `sugestão`, usado pelo formulário de issue, e atualizar a
+   descrição e o site do repositório.
+6. Conferir o site publicado.
 
 ## Verificação
 
@@ -405,11 +387,10 @@ redirecionar até o vínculo ser refeito no painel da Netlify. Nada quebra.
     restaura o estado), "Mostrar mais", favoritos (persistem após recarregar),
     toggle de favoritos, sorteio (abre, sorteia outra, fecha com Esc) e
     "Limpar filtros";
-  - nenhum erro no console, inclusive violações de CSP. O teste usa um servidor
-    Node simples, no scratchpad, que serve os arquivos com os cabeçalhos lidos do
-    `vercel.json`.
-- **No preview da Vercel**, antes do merge: a página carrega, os cabeçalhos
-  aparecem na resposta e os logos do logo.dev carregam.
+  - nenhum erro no console, inclusive violações da CSP da `<meta>`.
+- **No site publicado**, depois do merge: o mesmo teste do navegador roda contra
+  `https://hugobastoss.github.io/deviahub/`, e o workflow de validação passa
+  no push da `main`.
 
 ## Fora do escopo
 

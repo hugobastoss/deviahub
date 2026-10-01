@@ -3,7 +3,7 @@
 Curadoria aberta de mais de 600 ferramentas de IA, desenvolvimento, design,
 vídeo e produtividade, separadas por categoria e preço.
 
-🌐 https://deviahub.vercel.app/
+🌐 https://hugobastoss.github.io/deviahub/
 
 ## Sugerir uma ferramenta
 
@@ -25,12 +25,10 @@ scripts/
 .github/
   ISSUE_TEMPLATE/       # formulário de sugestão
   workflows/            # validação do catálogo em pull requests
-vercel.json             # cabeçalhos de cache e segurança
-netlify.toml            # redireciona o endereço antigo (tidevia.netlify.app)
 ```
 
-HTML, CSS e JavaScript estáticos, sem build. Publicado pela Vercel a partir da
-branch `main`.
+HTML, CSS e JavaScript estáticos, sem build. Publicado pelo GitHub Pages a
+partir da branch `main`.
 
 ## Rodar localmente
 
