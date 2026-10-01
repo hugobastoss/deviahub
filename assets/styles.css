@@ -93,11 +93,6 @@ a { color: inherit; }
   mask-image: radial-gradient(ellipse 70% 65% at 50% 0%, #000 35%, transparent 100%);
 }
 .hero { position: relative; text-align: center; padding-block: clamp(3.5rem, 9vw, 6.5rem); }
-.eyebrow {
-  display: inline-block; margin-bottom: 1.25rem;
-  font-size: 0.8rem; font-weight: 600; color: var(--accent);
-  background: var(--accent-soft); padding: 0.3rem 0.85rem; border-radius: 999px;
-}
 h1 {
   font-family: var(--display); font-weight: 700;
   font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -0.035em;

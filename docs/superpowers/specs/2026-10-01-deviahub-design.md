@@ -232,7 +232,7 @@ O mesmo SVG serve de `favicon.svg` e do ícone do topo.
 1. **Topo fixo e translúcido:** ícone + "DevIAHub". Menu: Catálogo, Sugerir e
    GitHub. Em telas com menos de 26rem, "Catálogo" some, como no irmão.
 2. **Hero:**
-   - Grade de fundo com máscara radial e selo "Curadoria aberta".
+   - Grade de fundo com máscara radial e sem selo acima do título (o "Curadoria aberta" foi removido a pedido do dono).
    - Título: "Ferramentas de IA certas para o seu **trabalho.**", com
      "trabalho." em `--accent`.
    - Texto de apoio: "Mais de 600 ferramentas de IA, desenvolvimento, design,
