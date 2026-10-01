@@ -353,6 +353,10 @@ O mesmo SVG serve de `favicon.svg` e do ícone do topo.
   A `<meta>` não suporta `frame-ancestors`, e o `X-Frame-Options` não pode ser
   definido. Por isso o site pode ser embutido em iframe por terceiros. O risco é
   baixo para um catálogo sem login, e o devskillshub tem a mesma limitação.
+- **Versão dos assets:** a página referencia CSS e JS com `?v=<hash do
+  conteúdo>` (`scripts/versionar-assets.mjs`; o CI confere com `--verificar`),
+  para o cache de 10 minutos não juntar uma página nova com um script antigo.
+  Adicionado depois de o DevStacksHub ficar com o catálogo vazio por esse motivo.
 - Sem `robots.txt`: dentro de uma subpasta (`/deviahub/`) ele não tem efeito.
   O `sitemap.xml` continua e pode ser enviado ao Search Console.
 
